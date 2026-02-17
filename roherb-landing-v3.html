@@ -919,16 +919,16 @@
     }
     .herb-float {
       position: absolute;
-      width: 28px;
-      height: 28px;
+      width: 35px;
+      height: 35px;
       opacity: 0.28;
     }
-    /* Size variation: xs to xl */
-    .herb-float--xs { width: 22px; height: 22px; opacity: 0.24; }
-    .herb-float--s { width: 26px; height: 26px; opacity: 0.26; }
-    .herb-float--m { width: 32px; height: 32px; opacity: 0.3; }
-    .herb-float--l { width: 40px; height: 40px; opacity: 0.26; }
-    .herb-float--xl { width: 48px; height: 48px; opacity: 0.22; }
+    /* Size variation: xs to xl (25% larger than base) */
+    .herb-float--xs { width: 28px; height: 28px; opacity: 0.24; }
+    .herb-float--s { width: 33px; height: 33px; opacity: 0.26; }
+    .herb-float--m { width: 40px; height: 40px; opacity: 0.3; }
+    .herb-float--l { width: 50px; height: 50px; opacity: 0.26; }
+    .herb-float--xl { width: 60px; height: 60px; opacity: 0.22; }
     .herb-float img,
     .herb-float svg {
       width: 100%;
@@ -938,7 +938,7 @@
     }
     @media (max-width: 767px) {
       .bg-herbs { opacity: 0.6; }
-      .herb-float { width: 20px !important; height: 20px !important; max-width: 24px; max-height: 24px; }
+      .herb-float { width: 25px !important; height: 25px !important; max-width: 30px; max-height: 30px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .bg-herbs-inner { will-change: auto; }
