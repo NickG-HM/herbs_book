@@ -13,6 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Preload LCP image (first product slide) for faster first paint -->
+  <link rel="preload" as="image" href="heroproductimages/hf_20260218_070557_3ef5fe9c-278e-412d-9c50-636f087f5c41.png">
   <style>
     /* ─── Design system: 8px grid, Apple/Nike-level polish ─── */
     :root {
@@ -1347,6 +1349,11 @@
     }
     .section--alt { background: var(--bg-section); }
     .section--muted { background: var(--bg); }
+    /* Below-the-fold sections: browser can skip painting until near viewport */
+    #included, #image-section, #experts, #celebrities, #author, #faq, #publisher, #who-for {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 400px;
+    }
     #intro { padding-bottom: 0; }
     .section--dark {
       background: linear-gradient(165deg, #0d0d0d 0%, #1a1a1a 100%);
@@ -2042,7 +2049,7 @@
         <h3>Customers also bought</h3>
         <div class="cart-drawer__also-list">
           <div class="cart-drawer__also-item" data-addon-id="addon-herbal-starter-kit">
-            <div class="cart-drawer__also-item-img"><img src="assets/images/herbal-starter-kit.png" alt="Herbal Starter Kit" loading="lazy"></div>
+            <div class="cart-drawer__also-item-img"><img src="assets/images/herbal-starter-kit.png" alt="Herbal Starter Kit" width="120" height="120" loading="lazy" decoding="async"></div>
             <span class="cart-drawer__also-item-name">Herbal Starter Kit</span>
             <span class="cart-drawer__also-item-price">+$32.00</span>
             <button type="button" class="cart-addon-btn js-cart-addon" data-product="Herbal Starter Kit" data-price="32" data-img="assets/images/herbal-starter-kit.png" aria-label="Add Herbal Starter Kit to cart">
@@ -2050,7 +2057,7 @@
             </button>
           </div>
           <div class="cart-drawer__also-item" data-addon-id="addon-apothecary-jars-set">
-            <div class="cart-drawer__also-item-img"><img src="assets/images/apothecary-jars-set.png" alt="Apothecary Jars Set" loading="lazy"></div>
+            <div class="cart-drawer__also-item-img"><img src="assets/images/apothecary-jars-set.png" alt="Apothecary Jars Set" width="120" height="120" loading="lazy" decoding="async"></div>
             <span class="cart-drawer__also-item-name">Apothecary Jars Set</span>
             <span class="cart-drawer__also-item-price">+$18.00</span>
             <button type="button" class="cart-addon-btn js-cart-addon" data-product="Apothecary Jars Set" data-price="18" data-img="assets/images/apothecary-jars-set.png" aria-label="Add Apothecary Jars Set to cart">
@@ -2058,7 +2065,7 @@
             </button>
           </div>
           <div class="cart-drawer__also-item" data-addon-id="addon-dried-herb-collection">
-            <div class="cart-drawer__also-item-img"><img src="assets/images/dried-herb-collection.png" alt="Dried Herb Collection" loading="lazy"></div>
+            <div class="cart-drawer__also-item-img"><img src="assets/images/dried-herb-collection.png" alt="Dried Herb Collection" width="120" height="120" loading="lazy" decoding="async"></div>
             <span class="cart-drawer__also-item-name">Dried Herb Collection</span>
             <span class="cart-drawer__also-item-price">+$24.00</span>
             <button type="button" class="cart-addon-btn js-cart-addon" data-product="Dried Herb Collection" data-price="24" data-img="assets/images/dried-herb-collection.png" aria-label="Add Dried Herb Collection to cart">
@@ -2100,7 +2107,7 @@
   <main>
     <!-- Hero product video (first screen) -->
     <section class="hero-video" aria-label="Product video">
-      <video autoplay muted loop playsinline aria-hidden="true">
+      <video autoplay muted loop playsinline aria-hidden="true" preload="metadata">
         <source src="video/Hero_Video_1920x1080_HB.mp4" type="video/mp4">
       </video>
     </section>
@@ -2112,10 +2119,10 @@
         <div class="product-gallery">
           <div class="product-gallery__main">
             <div class="product-gallery__track" id="product-gallery-track">
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070557_3ef5fe9c-278e-412d-9c50-636f087f5c41.png" alt="The Modern Home Apothecary — book cover" loading="eager"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070652_025e38b0-0fee-4864-87b5-a3ee0d76ca45.png" alt="Recipe example" loading="lazy"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070619_13260c38-9444-4360-a708-d3b4f836a6c0.png" alt="Recipe example" loading="lazy"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070632_a8efce7d-6abe-48ec-9062-ac5a517b952e.png" alt="Recipe example" loading="lazy"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070557_3ef5fe9c-278e-412d-9c50-636f087f5c41.png" alt="The Modern Home Apothecary — book cover" width="600" height="800" loading="eager" decoding="async" fetchpriority="high"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070652_025e38b0-0fee-4864-87b5-a3ee0d76ca45.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070619_13260c38-9444-4360-a708-d3b4f836a6c0.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070632_a8efce7d-6abe-48ec-9062-ac5a517b952e.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
             </div>
             <div class="product-gallery__arrows">
               <button type="button" class="product-gallery__arrow" id="product-gallery-prev" aria-label="Previous image">←</button>
@@ -2209,19 +2216,19 @@
         <div class="addons-products__list">
           <div class="addons-products__item">
             <div class="addons-products__item-img">
-              <img src="assets/images/herbal-starter-kit.png" alt="Herbal Starter Kit" width="120" height="120" loading="lazy">
+              <img src="assets/images/herbal-starter-kit.png" alt="Herbal Starter Kit" width="120" height="120" loading="lazy" decoding="async">
             </div>
             <span class="addons-products__item-name">Herbal Starter Kit</span>
           </div>
           <div class="addons-products__item">
             <div class="addons-products__item-img">
-              <img src="assets/images/apothecary-jars-set.png" alt="Apothecary Jars Set" width="120" height="120" loading="lazy">
+              <img src="assets/images/apothecary-jars-set.png" alt="Apothecary Jars Set" width="120" height="120" loading="lazy" decoding="async">
             </div>
             <span class="addons-products__item-name">Apothecary Jars Set</span>
           </div>
           <div class="addons-products__item">
             <div class="addons-products__item-img">
-              <img src="assets/images/dried-herb-collection.png" alt="Dried Herb Collection" width="120" height="120" loading="lazy">
+              <img src="assets/images/dried-herb-collection.png" alt="Dried Herb Collection" width="120" height="120" loading="lazy" decoding="async">
             </div>
             <span class="addons-products__item-name">Dried Herb Collection</span>
           </div>
@@ -2253,7 +2260,7 @@
           </div>
           <div class="media">
             <div class="story-image">
-              <img src="hf_20260218_064519_ef344f8b-60ac-4a15-8a62-04fa90cff108.png" alt="Headache Tibetan Brew recipe — sea buckthorn, ginger, goji berries for headache relief" width="1200" height="1600" loading="eager" decoding="async">
+              <img src="hf_20260218_064519_ef344f8b-60ac-4a15-8a62-04fa90cff108.png" alt="Headache Tibetan Brew recipe — sea buckthorn, ginger, goji berries for headache relief" width="1200" height="1600" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -2269,18 +2276,18 @@
         <h2 class="trusted-heading">Featured in</h2>
         <div class="marquee">
           <div class="marquee-track">
-            <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes"></div>
-            <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider"></div>
-            <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg"></div>
-            <div class="marquee-item"><img src="assets/logos/fortune.svg" alt="Fortune"></div>
-            <div class="marquee-item"><img src="assets/logos/fast-company.svg" alt="Fast Company"></div>
-            <div class="marquee-item"><img src="assets/logos/wsj.svg" alt="Wall Street Journal"></div>
-            <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes"></div>
-            <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider"></div>
-            <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg"></div>
-            <div class="marquee-item"><img src="assets/logos/fortune.svg" alt="Fortune"></div>
-            <div class="marquee-item"><img src="assets/logos/fast-company.svg" alt="Fast Company"></div>
-            <div class="marquee-item"><img src="assets/logos/wsj.svg" alt="Wall Street Journal"></div>
+            <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/fortune.svg" alt="Fortune" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/fast-company.svg" alt="Fast Company" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/wsj.svg" alt="Wall Street Journal" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/fortune.svg" alt="Fortune" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/fast-company.svg" alt="Fast Company" width="120" height="48" loading="lazy" decoding="async"></div>
+            <div class="marquee-item"><img src="assets/logos/wsj.svg" alt="Wall Street Journal" width="120" height="48" loading="lazy" decoding="async"></div>
           </div>
         </div>
       </div>
@@ -2353,7 +2360,7 @@
         <div class="carousel-scroll experts-cards">
           <article class="expert-card">
             <div class="expert-photo">
-              <img src="assets/images/expert-1.png" alt="Michael Pollan" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <img src="assets/images/expert-1.png" alt="Michael Pollan" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
               <div class="expert-photo-placeholder">Add photo</div>
             </div>
             <h3 class="expert-name">Michael Pollan</h3>
@@ -2363,7 +2370,7 @@
           </article>
           <article class="expert-card">
             <div class="expert-photo">
-              <img src="assets/images/expert-2.png" alt="Louise Hay" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <img src="assets/images/expert-2.png" alt="Louise Hay" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
               <div class="expert-photo-placeholder">Add photo</div>
             </div>
             <h3 class="expert-name">Louise Hay</h3>
@@ -2373,7 +2380,7 @@
           </article>
           <article class="expert-card">
             <div class="expert-photo">
-              <img src="assets/images/expert-3.png" alt="Rosemary Gladstar" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <img src="assets/images/expert-3.png" alt="Rosemary Gladstar" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
               <div class="expert-photo-placeholder">Add photo</div>
             </div>
             <h3 class="expert-name">Rosemary Gladstar</h3>
@@ -2419,7 +2426,7 @@
         <div class="carousel-scroll experts-cards">
           <article class="expert-card">
             <div class="expert-photo">
-              <img src="assets/images/celebrity-1.png" alt="Pharrell Williams" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <img src="assets/images/celebrity-1.png" alt="Pharrell Williams" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
               <div class="expert-photo-placeholder">Add photo</div>
             </div>
             <h3 class="expert-name">Pharrell Williams</h3>
@@ -2429,7 +2436,7 @@
           </article>
           <article class="expert-card">
             <div class="expert-photo">
-              <img src="assets/images/celebrity-2.png" alt="Meghan Markle" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <img src="assets/images/celebrity-2.png" alt="Meghan Markle" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
               <div class="expert-photo-placeholder">Add photo</div>
             </div>
             <h3 class="expert-name">Meghan Markle</h3>
@@ -2439,7 +2446,7 @@
           </article>
           <article class="expert-card">
             <div class="expert-photo">
-              <img src="assets/images/celebrity-3.png" alt="Miranda Kerr" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <img src="assets/images/celebrity-3.png" alt="Miranda Kerr" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
               <div class="expert-photo-placeholder">Add photo</div>
             </div>
             <h3 class="expert-name">Miranda Kerr</h3>
@@ -2459,7 +2466,7 @@
           <h2 class="text-h2">About the Author</h2>
         </div>
         <div class="author-image">
-          <img src="assets/images/author.png" alt="Author" loading="lazy">
+          <img src="assets/images/author.png" alt="Author" width="443" height="521" loading="lazy" decoding="async">
         </div>
         <p class="text-body" style="text-align: center;">
           My journey to health and wellness began with my own struggles. Before becoming a recognised Herbalist and expert in natural health, I spent 12 years as an international fashion model. My deep understanding of the plant world, combined with my Mediterranean ancestry rooted in spagyric Greek medicine, enabled me to create a herbal range that nurtures physical health while also supporting emotional well-being
