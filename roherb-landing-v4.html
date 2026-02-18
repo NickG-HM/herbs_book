@@ -1,0 +1,2931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#1d5c45">
+  <title>The Modern Home Apothecary | Verdant Press — 250 Plants & Botanical Recipes</title>
+  <meta name="description" content="The Modern Home Apothecary: 250 herbal recipes and 250 plant profiles. Teas, tinctures, salves, syrups, and alcohol-free preparations. A practical reference for everyday use. Ships in 2–5 days. 60-day money-back guarantee.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Design system: 8px grid, Apple/Nike-level polish ─── */
+    :root {
+      --space-1: 0.25rem;  /* 4px */
+      --space-2: 0.5rem;   /* 8px */
+      --space-3: 0.75rem;  /* 12px */
+      --space-4: 1rem;     /* 16px */
+      --space-5: 1.25rem;  /* 20px */
+      --space-6: 1.5rem;   /* 24px */
+      --space-8: 2rem;     /* 32px */
+      --space-10: 2.5rem;  /* 40px */
+      --space-12: 3rem;    /* 48px */
+      --space-16: 4rem;    /* 64px */
+      --space-20: 5rem;    /* 80px */
+      --space-24: 6rem;    /* 96px */
+
+      --bg: #fafaf8;
+      --bg-section: #ffffff;
+      --bg-elevated: #ffffff;
+      --text: #0d0d0d;
+      --text-muted: #5a5a5a;
+      --text-subtle: #8a8a8a;
+      --accent: #1d5c45;
+      --accent-hover: #247a5c;
+      --accent-muted: #e8f2ee;
+      --accent-dark: #0f3d2e;
+      --border: #e5e5e0;
+      --border-subtle: #f0f0ed;
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --shadow: 0 2px 12px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 24px rgba(0,0,0,.06);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,.08);
+      --max-width: 1120px;
+      --max-width-desktop: 1280px;
+      --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    /* iOS safe areas (notch, home indicator) */
+    body {
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      font-variant-ligatures: no-common-ligatures;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-4);
+      padding-left: calc(var(--space-4) + env(safe-area-inset-left));
+      padding-right: calc(var(--space-4) + env(safe-area-inset-right));
+    }
+    @media (min-width: 480px) {
+      .container { padding: 0 var(--space-6); padding-left: calc(var(--space-6) + env(safe-area-inset-left)); padding-right: calc(var(--space-6) + env(safe-area-inset-right)); }
+    }
+    @media (min-width: 1024px) {
+      .container { max-width: var(--max-width-desktop); padding: 0 var(--space-8); padding-left: calc(var(--space-8) + env(safe-area-inset-left)); padding-right: calc(var(--space-8) + env(safe-area-inset-right)); }
+    }
+    @media (min-width: 1280px) {
+      .container { padding: 0 var(--space-10); padding-left: calc(var(--space-10) + env(safe-area-inset-left)); padding-right: calc(var(--space-10) + env(safe-area-inset-right)); }
+    }
+    .container--narrow { max-width: 680px; }
+    .container--wide { max-width: 1280px; }
+
+    /* ─── Typography hierarchy ─── */
+    .text-display {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(2rem, 5.5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    @media (min-width: 1024px) {
+      .text-display { font-size: clamp(2.5rem, 3.5vw, 3.5rem); }
+      .text-h1 { font-size: clamp(2rem, 2.5vw, 2.5rem); }
+      .text-h2 { font-size: clamp(1.75rem, 2vw, 2rem); }
+    }
+    .text-h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+    .text-h2 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 1.875rem);
+      font-weight: 400;
+      line-height: 1.25;
+    }
+    .text-h3 { font-size: 1.125rem; font-weight: 600; letter-spacing: 0.01em; }
+    .text-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .text-body-lg { font-size: 1.125rem; line-height: 1.65; }
+    .text-body { font-size: 1rem; }
+    .text-small { font-size: 0.9375rem; color: var(--text-muted); }
+    .text-caption { font-size: 0.8125rem; color: var(--text-subtle); }
+    .highlight { color: var(--accent); font-weight: 500; }
+
+    /* ─── Header ─── */
+    header {
+      padding: var(--space-4) 0;
+      padding-top: calc(var(--space-4) + env(safe-area-inset-top));
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      transition: box-shadow var(--transition);
+    }
+    @media (min-width: 768px) {
+      header { padding: var(--space-5) 0; padding-top: var(--space-5); }
+    }
+    header.is-scrolled { box-shadow: var(--shadow); }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color var(--transition);
+    }
+    .logo:hover { color: var(--accent-hover); }
+    .logo:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: var(--radius-sm);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color var(--transition);
+      -webkit-tap-highlight-color: transparent;
+    }
+    nav a:hover, nav a:focus-visible { color: var(--accent); }
+    nav a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .nav-cta {
+      color: var(--accent) !important;
+      padding: var(--space-2) var(--space-4);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      margin-left: var(--space-2);
+    }
+    .nav-cta:hover {
+      background: var(--accent-muted);
+      border-color: var(--accent);
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: var(--space-3);
+      min-width: 44px;
+      min-height: 44px;
+      cursor: pointer;
+      color: var(--text);
+      font-size: 1.25rem;
+      line-height: 1;
+      transition: color var(--transition);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-toggle:hover, .nav-toggle:focus-visible { color: var(--accent); }
+    .nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    /* Mobile menu overlay: outside header so it always stacks on top */
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.4);
+      z-index: 99998;
+      opacity: 0;
+      transition: opacity var(--transition-slow);
+      pointer-events: none;
+    }
+    .nav-backdrop.is-visible { display: block; opacity: 1; pointer-events: auto; }
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: min(300px, 88vw);
+      z-index: 99999;
+      pointer-events: none;
+    }
+    .nav-overlay.is-open { display: block; pointer-events: auto; }
+    .nav-overlay nav {
+      height: 100%;
+      background: var(--bg-section);
+      box-shadow: -8px 0 32px rgba(0,0,0,.12);
+      padding: var(--space-16) var(--space-6) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      transform: translateX(100%);
+      transition: transform var(--transition-slow);
+    }
+    .nav-overlay.is-open nav { transform: translateX(0); }
+    .nav-overlay a {
+      padding: var(--space-4) 0;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .nav-overlay a:hover, .nav-overlay a:focus { color: var(--accent); }
+    .nav-overlay .nav-cta { margin-left: 0; margin-top: var(--space-4); text-align: center; color: var(--accent); border: 1px solid var(--accent); border-radius: var(--radius); justify-content: center; }
+
+    @media (max-width: 767px) {
+      .nav-toggle { display: block; }
+      header #main-nav { display: none; }
+    }
+    @media (min-width: 768px) {
+      .nav-overlay { display: none !important; }
+      .nav-backdrop { display: none !important; }
+    }
+
+    /* ─── Cart ─── */
+    .cart-trigger {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cart-trigger:hover, .cart-trigger:focus-visible { color: var(--accent); }
+    .cart-trigger:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .cart-trigger svg { width: 24px; height: 24px; }
+    .cart-trigger-badge {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .cart-trigger-badge.is-visible { opacity: 1; transform: scale(1); }
+    .cart-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.4);
+      z-index: 99998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-slow), visibility var(--transition-slow);
+    }
+    .cart-drawer-backdrop.is-visible { opacity: 1; visibility: visible; }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 420px;
+      height: 100%;
+      background: var(--bg-section);
+      box-shadow: -8px 0 32px rgba(0,0,0,.12);
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform var(--transition-slow);
+      overflow: hidden;
+    }
+    .cart-drawer.is-open { transform: translateX(0); }
+    .cart-drawer__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-5);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .cart-drawer__title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; margin: 0; }
+    .cart-drawer__close {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.5rem;
+      line-height: 1;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cart-drawer__close:hover { color: var(--text); }
+    .cart-drawer__body {
+      flex: 1;
+      overflow-y: auto;
+      padding: var(--space-4);
+    }
+    .cart-drawer__empty {
+      text-align: center;
+      padding: var(--space-12) var(--space-4);
+      color: var(--text-muted);
+    }
+    .cart-drawer__items { list-style: none; margin: 0; padding: 0; }
+    .cart-drawer__item {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .cart-drawer__item:last-child { border-bottom: none; }
+    .cart-drawer__item-img {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border-subtle);
+    }
+    .cart-drawer__item-img img { width: 100%; height: 100%; object-fit: cover; }
+    .cart-drawer__item-info { flex: 1; min-width: 0; }
+    .cart-drawer__item-name { font-weight: 500; margin: 0 0 var(--space-1); }
+    .cart-drawer__item-meta { font-size: 0.875rem; color: var(--text-muted); margin-bottom: var(--space-2); }
+    .cart-drawer__item-qty {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .cart-drawer__item-qty-btn {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--border-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cart-drawer__item-qty-btn:hover { background: var(--border); color: var(--accent); }
+    .cart-drawer__item-qty-val {
+      min-width: 1.5rem;
+      text-align: center;
+      font-weight: 500;
+      font-size: 0.9375rem;
+    }
+    .cart-drawer__also-bought {
+      margin-top: var(--space-6);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .cart-drawer__also-bought h3 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0 0 var(--space-3);
+    }
+    .cart-drawer__also-list {
+      display: flex;
+      overflow-x: auto;
+      gap: var(--space-4);
+      padding-bottom: var(--space-2);
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .cart-drawer__also-list::-webkit-scrollbar { height: 4px; }
+    .cart-drawer__also-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .cart-drawer__also-item {
+      flex-shrink: 0;
+      width: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-2);
+    }
+    .cart-drawer__also-item-img {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border-subtle);
+    }
+    .cart-drawer__also-item-img img { width: 100%; height: 100%; object-fit: cover; }
+    .cart-drawer__also-item-name {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.2;
+      min-height: 2.4em;
+    }
+    .cart-drawer__also-item-price {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: var(--space-1);
+    }
+    .cart-drawer__also-item .cart-addon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background var(--transition);
+      -webkit-tap-highlight-color: transparent;
+      flex-shrink: 0;
+    }
+    .cart-drawer__also-item .cart-addon-btn:hover { background: var(--accent-hover); }
+    .cart-drawer__also-item .cart-addon-btn svg { width: 14px; height: 14px; }
+    .cart-drawer__footer {
+      padding: var(--space-5);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .cart-drawer__subtotal {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--space-4);
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+    .cart-drawer__checkout {
+      width: 100%;
+      justify-content: center;
+    }
+    /* Out-of-stock modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 100000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-slow), visibility var(--transition-slow);
+    }
+    .modal-overlay.is-visible { opacity: 1; visibility: visible; }
+    .modal {
+      background: var(--bg-section);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.95);
+      transition: transform var(--transition-slow);
+    }
+    .modal-overlay.is-visible .modal { transform: scale(1); }
+    .modal__title { font-size: 1.25rem; margin: 0 0 var(--space-3); }
+    .modal__text { color: var(--text-muted); margin: 0 0 var(--space-6); }
+    .modal__btn {
+      display: inline-block;
+      padding: var(--space-4) var(--space-6);
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .modal__btn:hover { background: var(--accent-hover); }
+
+    /* ─── Buttons & CTAs ─── */
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: var(--space-4) var(--space-6);
+      min-height: 48px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+      border: none;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .cta-primary:hover {
+      background: var(--accent-hover);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+    .cta-primary:active { transform: translateY(0); }
+    .cta-primary:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      background: transparent;
+      color: var(--accent);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: var(--space-4) var(--space-6);
+      min-height: 48px;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: all var(--transition);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .cta-secondary:hover {
+      background: var(--accent-muted);
+      color: var(--accent);
+    }
+
+    /* ─── Hero product video (first screen after menu) ─── */
+    .hero-video {
+      position: relative;
+      width: 100%;
+      max-width: var(--max-width-desktop);
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    @media (min-width: 1024px) {
+      .hero-video { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+    }
+    .hero-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      vertical-align: middle;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: var(--space-12) 0 var(--space-12);
+      text-align: center;
+      background: linear-gradient(165deg, #f0f7f4 0%, var(--bg) 50%, #eef5f1 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      .hero { padding: var(--space-20) 0 var(--space-16); }
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: 50%;
+      transform: translateX(-50%);
+      width: 120%;
+      height: 100%;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(45,106,79,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero .container { max-width: 720px; position: relative; z-index: 1; }
+    .hero h1 { margin: 0 0 var(--space-4); }
+    .hero h1 .highlight { color: var(--accent); }
+    .hero .tagline {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      margin: 0 0 var(--space-6);
+      line-height: 1.6;
+    }
+    .hero .book-blurb {
+      font-size: 1rem;
+      color: var(--text);
+      margin: 0 0 var(--space-8);
+      line-height: 1.7;
+    }
+    .hero .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3);
+    }
+    @media (max-width: 480px) {
+      .hero .cta-row { flex-direction: column; align-items: stretch; }
+      .hero .cta-row .cta-primary,
+      .hero .cta-row .cta-secondary { width: 100%; justify-content: center; }
+    }
+
+    /* ─── Product section (gallery carousel + add to cart, right after video) ─── */
+    .product-section {
+      padding: 0 0 var(--space-12);
+      background: var(--bg-section);
+    }
+    @media (min-width: 768px) {
+      .product-section { padding: 0 0 var(--space-16); }
+    }
+    .product-section .container {
+      max-width: 1200px;
+      display: grid;
+      gap: var(--space-10);
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px) {
+      .product-section .container {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        gap: var(--space-16);
+        padding: 0 var(--space-8);
+      }
+      .product-gallery__main { border-radius: var(--radius-lg); overflow: hidden; }
+      .product-gallery__slide { aspect-ratio: 4/5; }
+    }
+    @media (min-width: 1200px) {
+      .product-section .container { max-width: 1280px; padding: 0 var(--space-10); }
+    }
+    .product-gallery {
+      width: 100%;
+    }
+    @media (max-width: 899px) {
+      .product-gallery {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+      }
+    }
+
+    /* Product gallery carousel */
+    .product-gallery {
+      position: relative;
+    }
+    .product-gallery__main {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0;
+      background: var(--border-subtle);
+    }
+    .product-gallery__track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .product-gallery__track::-webkit-scrollbar { display: none; }
+    .product-gallery__slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      aspect-ratio: 3/4;
+      position: relative;
+    }
+    .product-gallery__slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .product-gallery__arrows {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 var(--space-2);
+      pointer-events: none;
+    }
+    .product-gallery__arrow {
+      pointer-events: auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.95);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      line-height: 1;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .product-gallery__arrow:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .product-gallery__arrow:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+    .product-gallery__arrow:disabled:hover {
+      background: rgba(255,255,255,.95);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .product-gallery__dots {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+    }
+    .product-gallery__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: var(--border);
+      cursor: pointer;
+      padding: 0;
+      transition: background var(--transition);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .product-gallery__dot.is-active,
+    .product-gallery__dot:hover {
+      background: var(--accent);
+    }
+
+    /* Product block (add to cart, shipping, description, FAQ, delivery) */
+    .product-block { }
+    .product-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    .product-rating__stars {
+      color: #d4a853;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      line-height: 1;
+    }
+    .product-rating__value {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--text);
+    }
+    .product-rating__reviews {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .product-rating--hero {
+      justify-content: center;
+      margin-bottom: var(--space-6);
+    }
+    .product-rating--hero .product-rating__stars { font-size: 1.125rem; }
+    .product-rating--compact {
+      margin: 0;
+    }
+    .product-rating--compact.trust-strip-item::before { content: none; }
+    .product-rating--compact .product-rating__stars { font-size: 0.875rem; }
+    .product-rating--compact .product-rating__value,
+    .product-rating--compact .product-rating__reviews { font-size: 0.8125rem; }
+
+    .product-block__title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.5rem, 3vw, 1.875rem);
+      font-weight: 400;
+      margin: 0 0 var(--space-2);
+      color: var(--text);
+    }
+    .product-block__subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin: 0 0 var(--space-6);
+    }
+    .product-block__price {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: var(--space-5);
+    }
+    .product-block__form-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    .product-block__qty {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .product-block__qty-btn {
+      width: 44px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border: none;
+      cursor: pointer;
+      font-size: 1.25rem;
+      color: var(--text);
+      transition: background var(--transition), color var(--transition);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .product-block__qty-btn:hover { background: var(--border-subtle); color: var(--accent); }
+    .product-block__qty-input {
+      width: 3rem;
+      height: 48px;
+      border: none;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      text-align: center;
+      font-size: 1rem;
+      font-family: inherit;
+      -moz-appearance: textfield;
+    }
+    .product-block__qty-input::-webkit-outer-spin-button,
+    .product-block__qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .product-block__add-btn {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+    }
+    .product-block__add-btn.is-loading .product-block__add-text { opacity: 0; }
+    .product-block__add-btn.is-loading .product-block__spinner { opacity: 1; }
+    .product-block__spinner {
+      position: absolute;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .product-block__spinner .spinner {
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .product-block__delivery {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-6);
+      line-height: 1.6;
+    }
+    .product-block__delivery b { color: var(--text); font-weight: 600; }
+    .product-block__advantages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4) var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+    .product-block__advantage {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+    }
+    .product-block__advantage::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .product-block__accordions { border-top: 1px solid var(--border-subtle); }
+    .product-block__accordion {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .product-block__accordion-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+      min-height: 48px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      transition: color var(--transition);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .product-block__accordion-btn:hover { color: var(--accent); }
+    .product-block__accordion-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .product-block__accordion-btn::after {
+      content: '+';
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--text-subtle);
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+    .product-block__accordion.is-open .product-block__accordion-btn::after {
+      transform: rotate(45deg);
+    }
+    .product-block__accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-slow);
+    }
+    .product-block__accordion.is-open .product-block__accordion-content { max-height: 800px; }
+    .product-block__accordion-inner {
+      padding: 0 0 var(--space-5);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .product-block__accordion-inner p { margin: 0 0 var(--space-3); }
+    .product-block__accordion-inner p:last-child { margin-bottom: 0; }
+    .product-block__accordion-inner strong { color: var(--text); }
+    .product-block__accordion-inner a { color: var(--accent); text-decoration: none; }
+    .product-block__accordion-inner a:hover { text-decoration: underline; }
+
+    /* ─── Book description blurb (between product and hero) ─── */
+    .book-blurb-banner {
+      padding: var(--space-10) var(--space-6);
+      background: #1e3329;
+      text-align: center;
+    }
+    .book-blurb-banner .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .book-blurb-banner__text {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+      font-weight: 400;
+      line-height: 1.5;
+      color: #f5f5f2;
+      margin: 0;
+      max-width: 42em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .book-blurb-banner__heading { margin-bottom: var(--space-4); }
+    .book-blurb-banner__eyebrow {
+      color: rgba(245, 245, 242, 0.8);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .book-blurb-banner__title {
+      color: #f5f5f2;
+      font-family: 'DM Serif Display', Georgia, serif;
+      margin: 0;
+    }
+    .book-blurb-banner__text--who-for { margin-top: 0; }
+
+    /* ─── Trust strip ─── */
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3) var(--space-8);
+      padding: var(--space-5) var(--space-4);
+      background: var(--bg-section);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .trust-strip-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: var(--space-2);
+    }
+    .trust-strip-item::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ─── What's Included (redesigned) ─── */
+    #included .section-heading { text-align: center; margin-bottom: var(--space-10); }
+    #included .included-sub { font-size: 1.125rem; color: var(--text-muted); margin-top: var(--space-2); }
+    .included-cards {
+      display: grid;
+      gap: var(--space-6);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .included-cards { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+    }
+    .included-card {
+      background: var(--bg-section);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .included-card:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .included-card .card-head {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+    .included-card .card-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1;
+      background-color: #fff;
+    }
+    .included-card .card-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .included-card .recipe-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-5);
+    }
+    .included-card .recipe-tag {
+      font-size: 0.8125rem;
+      padding: var(--space-1) var(--space-3);
+      background: var(--accent-muted);
+      color: var(--accent-dark);
+      border-radius: 999px;
+      font-weight: 500;
+    }
+    .included-card .card-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin: var(--space-4) 0;
+    }
+    .included-card .card-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .included-card .card-checklist li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-2);
+    }
+    .included-card .card-checklist li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .included-card .card-note {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-top: var(--space-4);
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    /* ─── Visual Proof carousel (scroll style like Experts) ─── */
+    .visual-proof-carousel .visual-slide {
+      flex: 0 0 min(280px, 85vw);
+      scroll-snap-align: start;
+      aspect-ratio: 3/4;
+      background: var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-subtle);
+      font-size: 0.9375rem;
+      text-align: center;
+      padding: var(--space-4);
+      box-sizing: border-box;
+      position: relative;
+    }
+    @media (min-width: 1024px) {
+      .visual-proof-carousel .visual-slide { flex: 0 0 280px; }
+    }
+    .visual-proof-carousel .visual-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .visual-proof-carousel .visual-slide .slide-fallback {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+    }
+    .visual-proof-carousel .visual-slide.img-failed img { display: none; }
+    .visual-proof-carousel .visual-slide.img-failed .slide-fallback { display: flex; }
+    .who-for-grid {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .who-for-item {
+      padding: var(--space-5);
+      background: var(--bg-section);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+    }
+
+    /* ─── Industry Leaders & Experts ─── */
+    .experts-cards {
+      display: flex;
+      gap: var(--space-6);
+      overflow-x: auto;
+      padding-bottom: var(--space-4);
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+    @media (min-width: 1024px) {
+      .experts-cards { flex-wrap: wrap; overflow-x: visible; justify-content: center; scroll-snap-type: none; }
+    }
+    .experts-cards::-webkit-scrollbar { height: 6px; }
+    .experts-cards::-webkit-scrollbar-track { background: var(--border-subtle); border-radius: 3px; }
+    .experts-cards::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .expert-card {
+      flex: 0 0 min(280px, 85vw);
+      background: var(--bg-section);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      scroll-snap-align: start;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .expert-card:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    @media (min-width: 1024px) {
+      .expert-card { flex: 0 0 280px; max-width: 320px; }
+    }
+    .expert-card .expert-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: var(--space-4);
+      background: var(--border-subtle);
+      position: relative;
+    }
+    .expert-card .expert-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .expert-card .expert-photo-placeholder {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-subtle);
+      font-size: 0.75rem;
+    }
+    .expert-card .expert-photo.img-failed img { display: none; }
+    .expert-card .expert-photo.img-failed .expert-photo-placeholder { display: flex; }
+    .author-image {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 443/521;
+      margin: 0 auto var(--space-4);
+      border-radius: var(--radius);
+      background: var(--border-subtle);
+      overflow: hidden;
+    }
+    .author-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: inherit;
+    }
+    #author .author-image {
+      border-radius: 0;
+    }
+    #author .author-image img {
+      border-radius: 0;
+    }
+    #image-section {
+      padding-top: 1px;
+      padding-bottom: 1px;
+    }
+    #image-section .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .image-section-placeholder {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      background: var(--border-subtle);
+    }
+    .expert-card .expert-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin: 0 0 var(--space-1);
+    }
+    .expert-card .expert-title {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin: 0 0 var(--space-2);
+    }
+    .expert-card .expert-handle {
+      font-size: 0.8125rem;
+      color: var(--text-subtle);
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .expert-card .expert-quote {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--text);
+      margin: 0 0 var(--space-3);
+    }
+    .expert-card .expert-product {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      margin-bottom: var(--space-2);
+    }
+    .expert-card .expert-stars {
+      font-size: 0.875rem;
+      color: var(--text);
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── Section layout ─── */
+    .section {
+      padding: var(--space-12) 0;
+    }
+    @media (min-width: 768px) {
+      .section { padding: var(--space-20) 0; }
+    }
+    .section--alt { background: var(--bg-section); }
+    .section--muted { background: var(--bg); }
+    #intro { padding-bottom: 0; }
+    .section--dark {
+      background: linear-gradient(165deg, #0d0d0d 0%, #1a1a1a 100%);
+      color: #f5f5f5;
+    }
+    .section--dark h2, .section--dark .text-h2 { color: #fff; }
+    .section--dark .text-muted { color: rgba(255,255,255,.7); }
+    .section-heading {
+      text-align: center;
+      margin-bottom: var(--space-8);
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 768px) {
+      .section-heading { margin-bottom: var(--space-12); }
+    }
+    .section-heading h2 { margin: 0 0 var(--space-3); }
+    .section-heading .sub { margin: 0; }
+
+    /* ─── Story: text LEFT, image RIGHT; grid on .story (has .content + .media) ─── */
+    .story {
+      display: grid;
+      gap: var(--space-12);
+      align-items: start;
+    }
+    @media (min-width: 768px) {
+      .story {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-20);
+        align-items: center;
+      }
+      .story .content { grid-column: 1; }
+      .story .media { grid-column: 2; }
+    }
+    /* Image at natural size: no fixed box, no blank space */
+    .story-image {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    #intro .story-image {
+      width: 100%;
+      border-radius: var(--radius-lg);
+    }
+    @media (max-width: 767px) {
+      #intro .story-image {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        border-radius: 0;
+      }
+    }
+    .story-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      vertical-align: middle;
+    }
+    .story p { margin: 0 0 var(--space-4); }
+    .story p:last-child { margin-bottom: 0; }
+
+    /* ─── Trusted by: spacing controlled by --trusted-gap (increase = move marquee down) ─── */
+    .section-trusted {
+      --trusted-gap: 2.4rem; /* gap between heading and marquee; increase to move marquee down */
+      --trusted-padding-y: var(--space-10);
+      height: 210px;
+      padding: var(--trusted-padding-y) var(--space-6);
+      overflow: hidden;
+      background: #1e3329;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (min-width: 1024px) {
+      .section-trusted { height: 240px; padding: var(--trusted-padding-y) var(--space-10); }
+    }
+    .section-trusted .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--trusted-gap);
+    }
+    .section-trusted .trusted-heading {
+      margin: 0;
+      position: relative;
+      top: 2.4rem; /* 1cm down, visual only – marquee stays put */
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+      font-weight: 400;
+      line-height: 1.5;
+      color: #f5f5f2;
+    }
+    .section-trusted .marquee-item img {
+      filter: brightness(0) invert(1);
+    }
+    .section-trusted .marquee {
+      overflow: hidden;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+    }
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+      will-change: transform;
+    }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 var(--space-16);
+      height: 140px;
+    }
+    .marquee-item img {
+      max-height: 120px;
+      min-height: 48px;
+      max-width: 280px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      opacity: 1;
+    }
+
+    /* ─── Quotes slider (same format as pillars: section-heading) ─── */
+    .quotes-section { padding: var(--space-20) 0; text-align: center; }
+    .quotes-section .container { max-width: 680px; margin: 0 auto; }
+    .quotes-section .section-heading { margin-bottom: var(--space-12); }
+    .quotes-section .section-heading .text-eyebrow { color: rgba(255,255,255,.6); }
+    .quotes-section .section-heading h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 1.875rem); font-weight: 400; color: #fff; }
+    .quotes-section .section-heading .highlight { color: #7dd3a8; }
+    .quote-slider { position: relative; min-height: 200px; text-align: center; }
+    .quote-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    .quote-slide.is-active { opacity: 1; pointer-events: auto; }
+    .quote-slide blockquote {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-style: italic;
+      line-height: 1.55;
+      margin: 0 auto var(--space-4);
+      max-width: 580px;
+      color: rgba(255,255,255,.92);
+    }
+    .quote-slide cite {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,.75);
+      font-style: normal;
+    }
+    .quote-controls {
+      margin-top: var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+    }
+    .quote-dots { display: flex; gap: var(--space-2); align-items: center; }
+    .quote-dots button {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,.3);
+      cursor: pointer;
+      padding: 6px;
+      margin: 0;
+      transition: background var(--transition);
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: content-box;
+    }
+    .quote-dots button.is-active, .quote-dots button:hover {
+      background: rgba(255,255,255,.9);
+    }
+    .quote-pause {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.5);
+      color: #fff;
+      padding: var(--space-2) var(--space-4);
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.8125rem;
+      transition: background var(--transition);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .quote-pause:hover { background: rgba(255,255,255,.1); }
+
+    /* ─── CTA block ─── */
+    .cta-block {
+      text-align: center;
+      padding: var(--space-10) var(--space-4);
+      background: var(--accent-muted);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(29,92,69,.08);
+    }
+    @media (min-width: 768px) {
+      .cta-block { padding: var(--space-16) var(--space-6); border-radius: var(--radius-xl); }
+    }
+    .cta-block h2 { margin: 0 0 var(--space-4); }
+    .cta-block p { margin: 0 0 var(--space-6); max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-block .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-4);
+    }
+
+    /* ─── Newsletter ─── */
+    .newsletter {
+      display: grid;
+      gap: var(--space-10);
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .newsletter { grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
+    }
+    .newsletter-content h2 { margin: 0 0 var(--space-4); }
+    .newsletter-content p { margin: 0 0 var(--space-6); }
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+    @media (max-width: 480px) {
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form input[type="email"] { flex: none; }
+      .newsletter-form button { width: 100%; }
+    }
+    .newsletter-form input[type="email"],
+    .input-email {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+      padding: var(--space-4) var(--space-5);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 16px; /* prevents iOS zoom on focus */
+      font-family: inherit;
+      background: var(--bg-section);
+      color: var(--text);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    @media (min-width: 480px) {
+      .newsletter-form input[type="email"],
+      .input-email { min-width: 220px; width: auto; }
+    }
+    .newsletter-form input:focus,
+    .input-email:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(29,92,69,.12);
+    }
+    .newsletter-form button { flex-shrink: 0; }
+    .newsletter-visual {
+      aspect-ratio: 3/4;
+      max-width: 340px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .newsletter-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    @media (min-width: 768px) {
+      .newsletter-visual { margin: 0 0 0 auto; max-width: 400px; }
+    }
+
+    /* ─── Pillars / Services ─── */
+    .pillars-grid {
+      display: grid;
+      gap: var(--space-6);
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 960px) {
+      .pillars-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .pillar-card {
+      padding: var(--space-8);
+      background: var(--bg-section);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .pillar-card:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .pillar-card h3 {
+      margin: 0 0 var(--space-3);
+      color: var(--text);
+    }
+    .pillar-card p {
+      margin: 0;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .pillar-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-muted);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+    }
+    .pillar-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--accent);
+    }
+
+    /* ─── Scroll carousel (Experts-style: horizontal scroll + snap) ─── */
+    .carousel-scroll {
+      display: flex;
+      gap: var(--space-6);
+      overflow-x: auto;
+      padding-bottom: var(--space-4);
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+    .carousel-scroll::-webkit-scrollbar { height: 6px; }
+    .carousel-scroll::-webkit-scrollbar-track { background: var(--border-subtle); border-radius: 3px; }
+    .carousel-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ─── Recipes carousel ─── */
+    .recipes-carousel .recipe-card {
+      flex: 0 0 min(280px, 85vw);
+      scroll-snap-align: start;
+    }
+    @media (min-width: 1024px) {
+      .recipes-carousel .recipe-card { flex: 0 0 280px; }
+      .carousel-scroll { flex-wrap: wrap; overflow-x: visible; justify-content: center; scroll-snap-type: none; }
+    }
+    .recipe-card {
+      background: var(--bg-section);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-subtle);
+      transition: box-shadow var(--transition), transform var(--transition);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .recipe-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .recipe-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+    .recipe-card .recipe-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #e8f0ec;
+      overflow: hidden;
+    }
+    .recipe-card .recipe-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .recipe-card .info { padding: var(--space-5); }
+    .recipe-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0 0 var(--space-2);
+      color: var(--text);
+    }
+    .recipe-card p {
+      margin: 0 0 var(--space-3);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+    }
+    .recipe-card .view-link {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .recipe-card:hover .view-link { text-decoration: underline; }
+
+    /* ─── Projects / Use cases ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--space-4);
+    }
+    .project-card {
+      padding: var(--space-5);
+      background: var(--bg-section);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      background: var(--accent-muted);
+    }
+    .project-card h4 { margin: 0 0 var(--space-1); font-size: 1rem; }
+    .project-card span { font-size: 0.8125rem; color: var(--text-muted); }
+
+    /* ─── Add-ons: 3 tiles row, image + name only ─── */
+    .addons-products {
+      display: block;
+      padding: 10px 0 var(--space-12);
+      background: var(--bg-section);
+      border-top: 1px solid var(--border-subtle);
+    }
+    .addons-products .container { max-width: var(--max-width); }
+    .addons-products__list {
+      width: 100%;
+    }
+    @media (max-width: 899px) {
+      .addons-products__list {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+      }
+    }
+    .addons-products__heading {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-weight: 400;
+      margin: 0 0 var(--space-6);
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    .addons-products__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    .addons-products__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .addons-products__item-img {
+      width: 100%;
+      aspect-ratio: 3 / 1;
+      border-radius: 0;
+      overflow: hidden;
+      background: var(--border-subtle);
+      margin-bottom: var(--space-3);
+    }
+    .addons-products__item-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .addons-products__item-name {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    @media (max-width: 599px) {
+      .addons-products__list {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+    }
+
+    /* ─── Add-ons (CTA section) ─── */
+    .addons .container { max-width: 640px; text-align: center; }
+    .addons .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: var(--space-2) var(--space-4);
+      border-radius: 999px;
+      margin-bottom: var(--space-4);
+    }
+    .addons h2 { margin: 0 0 var(--space-3); }
+    .addons p { margin: 0 0 var(--space-4); }
+    .addons .signup-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      align-items: center;
+      margin-top: var(--space-6);
+    }
+    .addons .signup-row input[type="email"] {
+      flex: 1;
+      min-width: 0;
+      padding: var(--space-4) var(--space-5);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-family: inherit;
+      background: var(--bg-section);
+      color: var(--text);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    @media (max-width: 480px) {
+      .addons .signup-row { flex-direction: column; }
+      .addons .signup-row input[type="email"] { width: 100%; }
+      .addons .signup-row .cta-primary { width: 100%; }
+    }
+    .addons .signup-row input[type="email"]:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(29,92,69,.12);
+    }
+
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border-subtle); }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-4) 0;
+      min-height: 48px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      transition: color var(--transition);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    @media (min-width: 768px) {
+      .faq-question { padding: var(--space-5) 0; }
+    }
+    .faq-question:hover { color: var(--accent); }
+    .faq-question:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .faq-question::after {
+      content: '+';
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--text-subtle);
+      transition: transform var(--transition);
+      flex-shrink: 0;
+    }
+    .faq-item.is-open .faq-question::after {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-slow);
+    }
+    .faq-item.is-open .faq-answer { max-height: 500px; }
+    .faq-answer-inner {
+      padding: 0 0 var(--space-5);
+      padding-right: var(--space-10);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ─── Final CTA ─── */
+    .final-cta {
+      text-align: center;
+      padding: var(--space-10) var(--space-4);
+    }
+    @media (min-width: 768px) {
+      .final-cta { padding: var(--space-16) var(--space-6); }
+    }
+    .final-cta h2 { margin: 0 0 var(--space-4); }
+    .final-cta p { margin: 0 0 var(--space-6); }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: var(--space-12) 0 var(--space-8);
+      background: #1e3329;
+      color: rgba(255,255,255,.8);
+      font-size: 0.875rem;
+    }
+    .footer-inner {
+      display: grid;
+      gap: var(--space-8);
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      .footer-inner {
+        grid-template-columns: 1fr auto auto;
+        align-items: start;
+        gap: var(--space-12);
+      }
+    }
+    .footer-brand .logo { color: #fff; }
+    .footer-brand .logo:hover { color: rgba(255,255,255,.9); }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-6);
+    }
+    .footer-links a {
+      color: rgba(255,255,255,.8);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom {
+      grid-column: 1 / -1;
+      padding-top: var(--space-8);
+      border-top: 1px solid rgba(255,255,255,.15);
+      margin-top: var(--space-4);
+      text-align: center;
+    }
+    .footer-bottom p { margin: 0; color: rgba(255,255,255,.6); font-size: 0.8125rem; }
+    .footer-bottom p:first-child { max-width: 580px; margin-left: auto; margin-right: auto; }
+
+    header { position: relative; z-index: 1000; }
+    main { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container header-inner">
+      <a href="#book" class="logo">Verdant Press</a>
+      <div style="display: flex; align-items: center; gap: var(--space-2);">
+        <button type="button" class="cart-trigger" id="cart-trigger" aria-label="Open cart" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span class="cart-trigger-badge" id="cart-badge" aria-hidden="true">0</span>
+        </button>
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-overlay" id="nav-toggle">☰</button>
+      </div>
+      <nav id="main-nav" role="navigation" aria-label="Main">
+        <a href="#book">The Book</a>
+        <a href="#intro">About</a>
+        <a href="#included">What's Included</a>
+        <a href="#product" class="nav-cta">Get the Book</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Cart drawer -->
+  <div class="cart-drawer-backdrop" id="cart-backdrop" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title">Your cart</h2>
+      <button type="button" class="cart-drawer__close" id="cart-close" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-drawer__body">
+      <div class="cart-drawer__empty" id="cart-empty">Your cart is empty.</div>
+      <ul class="cart-drawer__items" id="cart-items" style="display: none;"></ul>
+      <div class="cart-drawer__also-bought">
+        <h3>Customers also bought</h3>
+        <div class="cart-drawer__also-list">
+          <div class="cart-drawer__also-item" data-addon-id="addon-herbal-starter-kit">
+            <div class="cart-drawer__also-item-img"><img src="assets/images/herbal-starter-kit.png" alt="Herbal Starter Kit" loading="lazy"></div>
+            <span class="cart-drawer__also-item-name">Herbal Starter Kit</span>
+            <span class="cart-drawer__also-item-price">+$32.00</span>
+            <button type="button" class="cart-addon-btn js-cart-addon" data-product="Herbal Starter Kit" data-price="32" data-img="assets/images/herbal-starter-kit.png" aria-label="Add Herbal Starter Kit to cart">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="0" y="9" width="20" height="2"/><rect x="10" y="20" width="20" height="2" transform="rotate(-90 10 20)"/></svg>
+            </button>
+          </div>
+          <div class="cart-drawer__also-item" data-addon-id="addon-apothecary-jars-set">
+            <div class="cart-drawer__also-item-img"><img src="assets/images/apothecary-jars-set.png" alt="Apothecary Jars Set" loading="lazy"></div>
+            <span class="cart-drawer__also-item-name">Apothecary Jars Set</span>
+            <span class="cart-drawer__also-item-price">+$18.00</span>
+            <button type="button" class="cart-addon-btn js-cart-addon" data-product="Apothecary Jars Set" data-price="18" data-img="assets/images/apothecary-jars-set.png" aria-label="Add Apothecary Jars Set to cart">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="0" y="9" width="20" height="2"/><rect x="10" y="20" width="20" height="2" transform="rotate(-90 10 20)"/></svg>
+            </button>
+          </div>
+          <div class="cart-drawer__also-item" data-addon-id="addon-dried-herb-collection">
+            <div class="cart-drawer__also-item-img"><img src="assets/images/dried-herb-collection.png" alt="Dried Herb Collection" loading="lazy"></div>
+            <span class="cart-drawer__also-item-name">Dried Herb Collection</span>
+            <span class="cart-drawer__also-item-price">+$24.00</span>
+            <button type="button" class="cart-addon-btn js-cart-addon" data-product="Dried Herb Collection" data-price="24" data-img="assets/images/dried-herb-collection.png" aria-label="Add Dried Herb Collection to cart">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="0" y="9" width="20" height="2"/><rect x="10" y="20" width="20" height="2" transform="rotate(-90 10 20)"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-drawer__footer" id="cart-footer" style="display: none;">
+      <div class="cart-drawer__subtotal">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">$0.00</span>
+      </div>
+      <button type="button" class="cta-primary cart-drawer__checkout" id="cart-checkout">Proceed to checkout</button>
+    </div>
+  </aside>
+
+  <!-- Out-of-stock modal -->
+  <div class="modal-overlay" id="out-of-stock-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal">
+      <h3 class="modal__title" id="modal-title">Sorry, we're out of stock</h3>
+      <p class="modal__text">We're restocking soon. Please check back later or join our newsletter to get notified.</p>
+      <button type="button" class="modal__btn" id="modal-close">OK</button>
+    </div>
+  </div>
+
+  <!-- Mobile menu overlay (outside header so it always stacks on top) -->
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+    <nav id="main-nav-mobile" role="navigation" aria-label="Main">
+      <a href="#book">The Book</a>
+      <a href="#intro">About</a>
+      <a href="#included">What's Included</a>
+      <a href="#product" class="nav-cta">Get the Book</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- Hero product video (first screen) -->
+    <section class="hero-video" aria-label="Product video">
+      <video autoplay muted loop playsinline aria-hidden="true">
+        <source src="LATEST VERSION/Hero_Video_1920x1080_HB.mp4" type="video/mp4">
+      </video>
+    </section>
+
+    <!-- Product section: image carousel + add to cart (right after video) -->
+    <section class="product-section section--alt" id="product">
+      <div class="container">
+        <!-- Product image carousel -->
+        <div class="product-gallery">
+          <div class="product-gallery__main">
+            <div class="product-gallery__track" id="product-gallery-track">
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070557_3ef5fe9c-278e-412d-9c50-636f087f5c41.png" alt="The Modern Home Apothecary — book cover" loading="eager"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070652_025e38b0-0fee-4864-87b5-a3ee0d76ca45.png" alt="Recipe example" loading="lazy"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070619_13260c38-9444-4360-a708-d3b4f836a6c0.png" alt="Recipe example" loading="lazy"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070632_a8efce7d-6abe-48ec-9062-ac5a517b952e.png" alt="Recipe example" loading="lazy"></div>
+            </div>
+            <div class="product-gallery__arrows">
+              <button type="button" class="product-gallery__arrow" id="product-gallery-prev" aria-label="Previous image">←</button>
+              <button type="button" class="product-gallery__arrow" id="product-gallery-next" aria-label="Next image">→</button>
+            </div>
+          </div>
+          <div class="product-gallery__dots" id="product-gallery-dots" role="tablist" aria-label="Image slides"></div>
+        </div>
+
+        <!-- Product info: add to cart, shipping, description, FAQ, delivery -->
+        <div class="product-block">
+        <h2 class="product-block__title">The Modern Home Apothecary</h2>
+        <p class="product-block__subtitle">250 plants and botanical recipes for everyday use</p>
+        <div class="product-rating" aria-label="4.9 out of 5 stars based on 300 reviews">
+          <span class="product-rating__stars" aria-hidden="true">★★★★★</span>
+          <span class="product-rating__value">4.9</span>
+          <span class="product-rating__reviews">(300 reviews)</span>
+        </div>
+        <div class="product-block__price">$79.00</div>
+
+        <form class="product-block__form js-product-form" action="#" method="post">
+          <div class="product-block__form-row">
+            <div class="product-block__qty">
+              <button type="button" class="product-block__qty-btn" aria-label="Decrease quantity" data-qty-minus>−</button>
+              <input type="number" name="quantity" class="product-block__qty-input" value="1" min="1" max="9" aria-label="Quantity">
+              <button type="button" class="product-block__qty-btn" aria-label="Increase quantity" data-qty-plus>+</button>
+            </div>
+            <button type="submit" class="cta-primary product-block__add-btn" id="product-add-btn">
+              <span class="product-block__add-text">Add to cart</span>
+              <i class="loading__spinner product-block__spinner" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66" width="20" height="20"><circle stroke-width="3" cx="33" cy="33" r="30" fill="none" class="path"></circle></svg>
+              </i>
+            </button>
+          </div>
+        </form>
+
+        <p class="product-block__delivery">
+          Shipping calculated at checkout.<br>
+          Estimated delivery: <b>2–5 business days</b> within the US.
+        </p>
+
+        <div class="product-block__advantages">
+          <span class="product-block__advantage">60-day money-back guarantee</span>
+          <span class="product-block__advantage">Secure payments</span>
+          <span class="product-block__advantage">Ships in 2–5 business days</span>
+        </div>
+
+        <div class="product-block__accordions">
+          <div class="product-block__accordion">
+            <button type="button" class="product-block__accordion-btn" aria-expanded="false" aria-controls="product-desc" id="product-desc-btn">Description</button>
+            <div class="product-block__accordion-content" id="product-desc" role="region" aria-labelledby="product-desc-btn">
+              <div class="product-block__accordion-inner">
+                <p>A beautifully illustrated, practical reference for making teas, tinctures, syrups, salves, infused oils, and alcohol-free preparations. <em>The Modern Home Apothecary</em> was created as a working reference — designed so you can find what you need in under a minute.</p>
+                <p>250 herbal recipes and 250 plant profiles, organized for clarity, speed, and real-world use. Full-color hardcover, 500+ pages.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-block__accordion">
+            <button type="button" class="product-block__accordion-btn" aria-expanded="false" aria-controls="product-faq" id="product-faq-btn">FAQ</button>
+            <div class="product-block__accordion-content" id="product-faq" role="region" aria-labelledby="product-faq-btn">
+              <div class="product-block__accordion-inner">
+                <p><strong>Is this book beginner-friendly?</strong><br>Yes. All instructions are clear and step-by-step.</p>
+                <p><strong>Does it include alcohol-free options?</strong><br>Yes. Many recipes include alcohol-free alternatives.</p>
+                <p><strong>Is this medical advice?</strong><br>No. This book is for educational purposes only.</p>
+                <p><strong>What format is the book?</strong><br>Hardcover, full-color print.</p>
+                <p><strong>How long does shipping take?</strong><br>Orders ship within 2–5 business days.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-block__accordion">
+            <button type="button" class="product-block__accordion-btn" aria-expanded="false" aria-controls="product-delivery" id="product-delivery-btn">Delivery</button>
+            <div class="product-block__accordion-content" id="product-delivery" role="region" aria-labelledby="product-delivery-btn">
+              <div class="product-block__accordion-inner">
+                <p><strong>Order processing</strong><br>All orders are processed within 2–5 business days. We do not ship on weekends or holidays.</p>
+                <p><strong>Shipping</strong><br>Shipping and taxes are calculated at checkout. Delivery times vary by location. For details, see our Shipping Policy.</p>
+                <p><strong>Contact</strong><br>For questions about your order, contact us at <a href="mailto:support@verdantpress.com">support@verdantpress.com</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Add-ons: images + names only, 3 tiles in a row -->
+    <section class="addons-products" id="addons-products" aria-label="Add-ons">
+      <div class="container">
+        <h2 class="addons-products__heading">Special Add-ons</h2>
+        <div class="addons-products__list">
+          <div class="addons-products__item">
+            <div class="addons-products__item-img">
+              <img src="assets/images/herbal-starter-kit.png" alt="Herbal Starter Kit" width="120" height="120" loading="lazy">
+            </div>
+            <span class="addons-products__item-name">Herbal Starter Kit</span>
+          </div>
+          <div class="addons-products__item">
+            <div class="addons-products__item-img">
+              <img src="assets/images/apothecary-jars-set.png" alt="Apothecary Jars Set" width="120" height="120" loading="lazy">
+            </div>
+            <span class="addons-products__item-name">Apothecary Jars Set</span>
+          </div>
+          <div class="addons-products__item">
+            <div class="addons-products__item-img">
+              <img src="assets/images/dried-herb-collection.png" alt="Dried Herb Collection" width="120" height="120" loading="lazy">
+            </div>
+            <span class="addons-products__item-name">Dried Herb Collection</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book description blurb -->
+    <section class="book-blurb-banner" aria-label="About the book">
+      <div class="container">
+        <p class="book-blurb-banner__text">A beautifully illustrated guide to home medicines and botanical recipes for rejuvenating, nourishing the body and skin, and promoting wellbeing.</p>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="section section--alt" id="intro">
+      <div class="container">
+        <div class="story">
+          <div class="content">
+            <span class="text-eyebrow">The approach</span>
+            <h2 class="text-h1">A practical herbal reference you'll <span class="highlight">actually use</span>.</h2>
+            <p>
+              Most herbal books are inspiring but difficult to navigate when you need something specific.
+              <em>The Modern Home Apothecary</em> was created as a working reference — not a coffee-table book.
+            </p>
+            <p>
+              Every recipe and herb profile is organized for clarity, speed, and real-world use.
+            </p>
+          </div>
+          <div class="media">
+            <div class="story-image">
+              <img src="hf_20260218_064519_ef344f8b-60ac-4a15-8a62-04fa90cff108.png" alt="Headache Tibetan Brew recipe — sea buckthorn, ginger, goji berries for headache relief" width="1200" height="1600" loading="eager" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacer with muted background before trusted section -->
+    <div style="height: 2.4rem; background: var(--bg);"></div>
+
+    <!-- Trusted by: adjust --trusted-gap in CSS to move heading/marquee up or down -->
+    <section class="section section-trusted" id="trusted">
+      <div class="container">
+        <h2 class="trusted-heading">Featured in</h2>
+        <div class="marquee">
+          <div class="marquee-track">
+            <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes"></div>
+            <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider"></div>
+            <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg"></div>
+            <div class="marquee-item"><img src="assets/logos/fortune.svg" alt="Fortune"></div>
+            <div class="marquee-item"><img src="assets/logos/fast-company.svg" alt="Fast Company"></div>
+            <div class="marquee-item"><img src="assets/logos/wsj.svg" alt="Wall Street Journal"></div>
+            <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes"></div>
+            <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider"></div>
+            <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg"></div>
+            <div class="marquee-item"><img src="assets/logos/fortune.svg" alt="Fortune"></div>
+            <div class="marquee-item"><img src="assets/logos/fast-company.svg" alt="Fast Company"></div>
+            <div class="marquee-item"><img src="assets/logos/wsj.svg" alt="Wall Street Journal"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="section section--muted" id="included">
+      <div class="container">
+        <div class="section-heading">
+          <span class="text-eyebrow">What's inside</span>
+          <h2 class="text-h2">500+ pages of practical reference</h2>
+          <p class="included-sub">250 recipes + 250 plant profiles, organized for everyday use.</p>
+        </div>
+        <div class="included-cards">
+          <article class="included-card">
+            <div class="card-head">
+              <span class="card-number">250</span>
+              <h3 class="card-title">Herbal Recipes</h3>
+            </div>
+            <div class="recipe-tags">
+              <span class="recipe-tag">Teas & infusions</span>
+              <span class="recipe-tag">Tinctures & glycerites</span>
+              <span class="recipe-tag">Syrups & oxymels</span>
+              <span class="recipe-tag">Salves & balms</span>
+              <span class="recipe-tag">Infused oils</span>
+              <span class="recipe-tag">Compresses</span>
+              <span class="recipe-tag">Bitters & digestive blends</span>
+              <span class="recipe-tag">Baths & steams</span>
+            </div>
+            <div class="card-divider"></div>
+            <p class="text-small" style="margin: 0 0 var(--space-2); font-weight: 500;">Every recipe includes:</p>
+            <ul class="card-checklist">
+              <li>Ingredients & exact measurements</li>
+              <li>Step-by-step instructions</li>
+              <li>Storage & shelf life</li>
+              <li>General use notes</li>
+            </ul>
+          </article>
+          <article class="included-card">
+            <div class="card-head">
+              <span class="card-number">250</span>
+              <h3 class="card-title">Plant Profiles</h3>
+            </div>
+            <ul class="card-checklist">
+              <li>Common and Latin name</li>
+              <li>Plant parts used</li>
+              <li>Traditional background</li>
+              <li>Recommended preparation methods</li>
+              <li>Safety considerations & cautions</li>
+            </ul>
+            <p class="card-note">Written for beginners and useful as a long-term reference.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empty image section -->
+    <section class="section section--muted" id="image-section" aria-label="Image">
+      <div class="container">
+        <img src="hf_20260218_062913_4bc7d5e0-40de-4b00-8916-317705909425.png" alt="Botanical reference: Premenstrual Syndrome and Anxiety herbal remedies" class="image-section-placeholder" width="1200" height="789" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <!-- Industry Leaders & Experts -->
+    <section class="section section--alt experts-section" id="experts">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="text-h2">Recommended by <span class="highlight">Industry Leaders & Experts</span></h2>
+        </div>
+        <div class="carousel-scroll experts-cards">
+          <article class="expert-card">
+            <div class="expert-photo">
+              <img src="assets/images/expert-1.png" alt="Michael Pollan" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <div class="expert-photo-placeholder">Add photo</div>
+            </div>
+            <h3 class="expert-name">Michael Pollan</h3>
+            <p class="expert-title">Author & Food Thinker</p>
+            <p class="expert-handle" aria-hidden="true"></p>
+            <p class="expert-quote">"The natural world is the best apothecary we have."</p>
+          </article>
+          <article class="expert-card">
+            <div class="expert-photo">
+              <img src="assets/images/expert-2.png" alt="Louise Hay" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <div class="expert-photo-placeholder">Add photo</div>
+            </div>
+            <h3 class="expert-name">Louise Hay</h3>
+            <p class="expert-title">Health Pioneer</p>
+            <p class="expert-handle" aria-hidden="true"></p>
+            <p class="expert-quote">"Healing is a matter of time, but it is sometimes also a matter of herbs."</p>
+          </article>
+          <article class="expert-card">
+            <div class="expert-photo">
+              <img src="assets/images/expert-3.png" alt="Rosemary Gladstar" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <div class="expert-photo-placeholder">Add photo</div>
+            </div>
+            <h3 class="expert-name">Rosemary Gladstar</h3>
+            <p class="expert-title">Herbalist & Author, "Godmother of Modern Herbalism"</p>
+            <p class="expert-handle" aria-hidden="true"></p>
+            <p class="expert-quote">"Brewed with intent and a bit of kitchen magic, herbal tea offers more than meets the eye—there's earth, sky, sunlight, and stars captured in every cup."</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who This Book Is For (styled like book blurb banner) -->
+    <section class="book-blurb-banner" id="who-for" aria-label="Who this book is for">
+      <div class="container">
+        <div class="section-heading book-blurb-banner__heading">
+          <h2 class="text-h2 book-blurb-banner__title">Who this book is for</h2>
+        </div>
+        <p class="book-blurb-banner__text book-blurb-banner__text--who-for">Anyone building a practical home reference library. Beginners looking for clear, structured guidance. Readers interested in traditional botanical knowledge. People who want a book they'll return to again and again.</p>
+        <p class="book-blurb-banner__text" style="margin-top: var(--space-4); margin-bottom: 0; font-size: 1rem;">No prior herbal experience required.</p>
+      </div>
+    </section>
+
+    <!-- About the Publisher -->
+    <section class="section section--alt" id="publisher">
+      <div class="container container--narrow">
+        <div class="section-heading">
+          <span class="text-eyebrow">Publisher</span>
+          <h2 class="text-h2">About Verdant Press</h2>
+        </div>
+        <p class="text-body" style="text-align: center;">
+          Verdant Press creates clear, well-designed reference books focused on traditional knowledge presented responsibly for modern readers.
+          Our work emphasizes usability, structure, and clarity over trends or exaggeration.
+        </p>
+      </div>
+    </section>
+
+    <!-- Celebrities say -->
+    <section class="section section--alt experts-section" id="celebrities">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="text-h2">Celebrities say</h2>
+        </div>
+        <div class="carousel-scroll experts-cards">
+          <article class="expert-card">
+            <div class="expert-photo">
+              <img src="assets/images/celebrity-1.png" alt="Pharrell Williams" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <div class="expert-photo-placeholder">Add photo</div>
+            </div>
+            <h3 class="expert-name">Pharrell Williams</h3>
+            <p class="expert-title">Singer, Rapper & Producer</p>
+            <p class="expert-handle" aria-hidden="true"></p>
+            <p class="expert-quote">"A plant-centered approach has positively shaped how I think about health."</p>
+          </article>
+          <article class="expert-card">
+            <div class="expert-photo">
+              <img src="assets/images/celebrity-2.png" alt="Meghan Markle" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <div class="expert-photo-placeholder">Add photo</div>
+            </div>
+            <h3 class="expert-name">Meghan Markle</h3>
+            <p class="expert-title">Duchess of Sussex</p>
+            <p class="expert-handle" aria-hidden="true"></p>
+            <p class="expert-quote">"I see food as medicine — and natural ingredients can support us through real life moments."</p>
+          </article>
+          <article class="expert-card">
+            <div class="expert-photo">
+              <img src="assets/images/celebrity-3.png" alt="Miranda Kerr" loading="lazy" onerror="this.parentElement.classList.add('img-failed')">
+              <div class="expert-photo-placeholder">Add photo</div>
+            </div>
+            <h3 class="expert-name">Miranda Kerr</h3>
+            <p class="expert-title">Victoria's Secret Angel & Founder, KORA Organics</p>
+            <p class="expert-handle" aria-hidden="true"></p>
+            <p class="expert-quote">"Natural ingredients have supported my health since I was young."</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the Author -->
+    <section class="section section--alt" id="author">
+      <div class="container container--narrow">
+        <div class="section-heading">
+          <span class="text-eyebrow">Author</span>
+          <h2 class="text-h2">About the Author</h2>
+        </div>
+        <div class="author-image">
+          <img src="assets/images/author.png" alt="Author" loading="lazy">
+        </div>
+        <p class="text-body" style="text-align: center;">
+          My journey to health and wellness began with my own struggles. Before becoming a recognised Herbalist and expert in natural health, I spent 12 years as an international fashion model. My deep understanding of the plant world, combined with my Mediterranean ancestry rooted in spagyric Greek medicine, enabled me to create a herbal range that nurtures physical health while also supporting emotional well-being
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--muted" id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <span class="text-eyebrow">Questions</span>
+          <h2 class="text-h2">FAQs</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-1" id="faq-q1">Is this book beginner-friendly?</button>
+            <div class="faq-answer" id="faq-1" role="region" aria-labelledby="faq-q1">
+              <div class="faq-answer-inner">Yes. All instructions are clear and step-by-step.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-2" id="faq-q2">Does it include alcohol-free options?</button>
+            <div class="faq-answer" id="faq-2" role="region" aria-labelledby="faq-q2">
+              <div class="faq-answer-inner">Yes. Many recipes include alcohol-free alternatives.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-3" id="faq-q3">Is this medical advice?</button>
+            <div class="faq-answer" id="faq-3" role="region" aria-labelledby="faq-q3">
+              <div class="faq-answer-inner">No. This book is for educational purposes only.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-4" id="faq-q4">Are safety notes included?</button>
+            <div class="faq-answer" id="faq-4" role="region" aria-labelledby="faq-q4">
+              <div class="faq-answer-inner">Yes. Safety considerations are included throughout.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-5" id="faq-q5">Is this focused on North American herbs?</button>
+            <div class="faq-answer" id="faq-5" role="region" aria-labelledby="faq-q5">
+              <div class="faq-answer-inner">Primarily yes, with some widely available international plants.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-6" id="faq-q6">What format is the book?</button>
+            <div class="faq-answer" id="faq-6" role="region" aria-labelledby="faq-q6">
+              <div class="faq-answer-inner">Hardcover, full-color print.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-7" id="faq-q7">How long does shipping take?</button>
+            <div class="faq-answer" id="faq-7" role="region" aria-labelledby="faq-q7">
+              <div class="faq-answer-inner">Orders ship within 2–5 business days.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#book" class="logo">Verdant Press</a>
+      </div>
+      <div class="footer-links">
+        <a href="#book">The Book</a>
+        <a href="#intro">About</a>
+        <a href="#included">What's Included</a>
+        <a href="#product">Get the Book</a>
+        <a href="#newsletter">Newsletter</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <p><strong>For educational purposes only.</strong> This book is not intended to diagnose, treat, cure, or prevent any disease. Always consult a qualified healthcare professional regarding medical concerns.</p>
+        <p style="margin-top: var(--space-4);">© Verdant Press. Practical botanical knowledge for modern living.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll state
+    (function() {
+      var header = document.getElementById('header');
+      if (header) {
+        window.addEventListener('scroll', function() {
+          header.classList.toggle('is-scrolled', window.scrollY > 20);
+        });
+      }
+    })();
+
+    // Quote slider (with swipe to change quote)
+    (function() {
+      var slider = document.getElementById('quote-slider');
+      var slides = document.querySelectorAll('.quote-slide');
+      var dotsContainer = document.querySelector('.quote-dots');
+      var pauseBtn = document.querySelector('.quote-pause');
+      if (!slides.length) return;
+      var i = 0, interval = 5000, t = null;
+      var touchStartX = 0;
+      var minSwipe = 50;
+      function goTo(idx) {
+        slides[i].classList.remove('is-active');
+        if (dotsContainer && dotsContainer.children[i]) dotsContainer.children[i].classList.remove('is-active');
+        i = (idx + slides.length) % slides.length;
+        slides[i].classList.add('is-active');
+        if (dotsContainer && dotsContainer.children[i]) dotsContainer.children[i].classList.add('is-active');
+      }
+      function next() { goTo(i + 1); }
+      function prev() { goTo(i - 1); }
+      function startTimer() {
+        if (t) clearInterval(t);
+        t = setInterval(next, interval);
+        if (pauseBtn) { pauseBtn.textContent = 'Pause'; pauseBtn.setAttribute('aria-label', 'Pause'); }
+      }
+      function stopTimer() {
+        if (t) { clearInterval(t); t = null; }
+        if (pauseBtn) { pauseBtn.textContent = 'Play'; pauseBtn.setAttribute('aria-label', 'Play'); }
+      }
+      if (dotsContainer) {
+        for (var d = 0; d < slides.length; d++) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.setAttribute('role', 'tab');
+          btn.setAttribute('aria-label', 'Quote ' + (d + 1));
+          if (d === 0) btn.classList.add('is-active');
+          btn.addEventListener('click', (function(idx) { return function() { goTo(idx); startTimer(); }; }(d)));
+          dotsContainer.appendChild(btn);
+        }
+      }
+      if (pauseBtn) pauseBtn.addEventListener('click', function() { t ? stopTimer() : startTimer(); });
+      if (slider) {
+        slider.addEventListener('touchstart', function(e) {
+          touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        slider.addEventListener('touchend', function(e) {
+          var dx = e.changedTouches[0].clientX - touchStartX;
+          if (dx > minSwipe) { prev(); startTimer(); }
+          else if (dx < -minSwipe) { next(); startTimer(); }
+        }, { passive: true });
+      }
+      startTimer();
+    })();
+
+    // Mobile nav (overlay is outside header so it stacks on top)
+    (function() {
+      var toggle = document.getElementById('nav-toggle');
+      var overlay = document.getElementById('nav-overlay');
+      var backdrop = document.getElementById('nav-backdrop');
+      function open() {
+        if (overlay) { overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden', 'false'); }
+        if (backdrop) { backdrop.classList.add('is-visible'); backdrop.setAttribute('aria-hidden', 'false'); }
+        if (toggle) { toggle.setAttribute('aria-expanded', 'true'); toggle.setAttribute('aria-label', 'Close menu'); }
+      }
+      function close() {
+        if (overlay) { overlay.classList.remove('is-open'); overlay.setAttribute('aria-hidden', 'true'); }
+        if (backdrop) { backdrop.classList.remove('is-visible'); backdrop.setAttribute('aria-hidden', 'true'); }
+        if (toggle) { toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open menu'); }
+      }
+      if (toggle) toggle.addEventListener('click', function() { overlay && overlay.classList.contains('is-open') ? close() : open(); });
+      if (backdrop) backdrop.addEventListener('click', close);
+      if (overlay) overlay.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
+    })();
+
+    // FAQ accordion
+    (function() {
+      document.querySelectorAll('.faq-item').forEach(function(item) {
+        var btn = item.querySelector('.faq-question');
+        if (btn) {
+          btn.addEventListener('click', function() {
+            var isOpen = item.classList.contains('is-open');
+            document.querySelectorAll('.faq-item').forEach(function(i) {
+              i.classList.remove('is-open');
+              var q = i.querySelector('.faq-question');
+              if (q) q.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+              item.classList.add('is-open');
+              btn.setAttribute('aria-expanded', 'true');
+            }
+          });
+        }
+      });
+    })();
+
+    // Product block accordions (Description, FAQ, Delivery)
+    (function() {
+      document.querySelectorAll('.product-block__accordion').forEach(function(item) {
+        var btn = item.querySelector('.product-block__accordion-btn');
+        if (btn) {
+          btn.addEventListener('click', function() {
+            var isOpen = item.classList.contains('is-open');
+            document.querySelectorAll('.product-block__accordion').forEach(function(i) {
+              i.classList.remove('is-open');
+              var b = i.querySelector('.product-block__accordion-btn');
+              if (b) b.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+              item.classList.add('is-open');
+              btn.setAttribute('aria-expanded', 'true');
+            }
+          });
+        }
+      });
+    })();
+
+    // Cart (MVP: in-memory, no checkout — proceed shows out-of-stock modal)
+    (function() {
+      var cart = [];
+      var MAIN_PRODUCT = { id: 'book', name: 'The Modern Home Apothecary', price: 79, img: 'heroproductimages/hf_20260218_070652_025e38b0-0fee-4864-87b5-a3ee0d76ca45.png' };
+      var drawer = document.getElementById('cart-drawer');
+      var backdrop = document.getElementById('cart-backdrop');
+      var trigger = document.getElementById('cart-trigger');
+      var closeBtn = document.getElementById('cart-close');
+      var badge = document.getElementById('cart-badge');
+      var itemsEl = document.getElementById('cart-items');
+      var emptyEl = document.getElementById('cart-empty');
+      var footerEl = document.getElementById('cart-footer');
+      var subtotalEl = document.getElementById('cart-subtotal');
+      var checkoutBtn = document.getElementById('cart-checkout');
+      var modal = document.getElementById('out-of-stock-modal');
+      var modalClose = document.getElementById('modal-close');
+
+      function getTotalItems() {
+        return cart.reduce(function(sum, it) { return sum + (it.qty || 1); }, 0);
+      }
+      function getSubtotal() {
+        return cart.reduce(function(sum, it) { return sum + (it.price * (it.qty || 1)); }, 0);
+      }
+      function renderCart() {
+        var total = getTotalItems();
+        badge.textContent = total;
+        badge.classList.toggle('is-visible', total > 0);
+        if (total === 0) {
+          emptyEl.style.display = 'block';
+          itemsEl.style.display = 'none';
+          footerEl.style.display = 'none';
+          updateAddonVisibility();
+          return;
+        }
+        emptyEl.style.display = 'none';
+        itemsEl.style.display = 'block';
+        footerEl.style.display = 'block';
+        subtotalEl.textContent = '$' + getSubtotal().toFixed(2);
+        itemsEl.innerHTML = cart.map(function(it, idx) {
+          var q = it.qty || 1;
+          var line = it.price * q;
+          return '<li class="cart-drawer__item" data-cart-index="' + idx + '">' +
+            '<div class="cart-drawer__item-img"><img src="' + (it.img || MAIN_PRODUCT.img) + '" alt=""></div>' +
+            '<div class="cart-drawer__item-info">' +
+            '<div class="cart-drawer__item-name">' + it.name + '</div>' +
+            '<div class="cart-drawer__item-meta">$' + it.price.toFixed(2) + ' each</div>' +
+            '<div class="cart-drawer__item-qty">' +
+            '<button type="button" class="cart-drawer__item-qty-btn js-cart-qty-minus" aria-label="Decrease quantity">−</button>' +
+            '<span class="cart-drawer__item-qty-val">' + q + '</span>' +
+            '<button type="button" class="cart-drawer__item-qty-btn js-cart-qty-plus" aria-label="Increase quantity">+</button>' +
+            '</div>' +
+            '<div class="cart-drawer__item-meta">$' + line.toFixed(2) + '</div>' +
+            '</div></li>';
+        }).join('');
+        bindCartQtyButtons();
+        updateAddonVisibility();
+      }
+      function updateAddonVisibility() {
+        var inCartIds = cart.filter(function(it) { return it.isAddon; }).map(function(it) { return it.id; });
+        document.querySelectorAll('[data-addon-id]').forEach(function(el) {
+          var id = el.getAttribute('data-addon-id');
+          el.style.display = inCartIds.indexOf(id) >= 0 ? 'none' : '';
+        });
+      }
+      function bindCartQtyButtons() {
+        itemsEl.querySelectorAll('.js-cart-qty-minus').forEach(function(btn) {
+          var li = btn.closest('[data-cart-index]');
+          var idx = parseInt(li.getAttribute('data-cart-index'), 10);
+          btn.onclick = function() {
+            var it = cart[idx];
+            if (!it) return;
+            it.qty = Math.max(0, (it.qty || 1) - 1);
+            if (it.qty <= 0) cart.splice(idx, 1);
+            renderCart();
+            if (cart.length === 0) return;
+            openCart();
+          };
+        });
+        itemsEl.querySelectorAll('.js-cart-qty-plus').forEach(function(btn) {
+          var li = btn.closest('[data-cart-index]');
+          var idx = parseInt(li.getAttribute('data-cart-index'), 10);
+          btn.onclick = function() {
+            var it = cart[idx];
+            if (!it) return;
+            it.qty = (it.qty || 1) + 1;
+            renderCart();
+            openCart();
+          };
+        });
+      }
+      function openCart() {
+        if (drawer) drawer.classList.add('is-open');
+        if (backdrop) backdrop.classList.add('is-visible');
+        if (trigger) { trigger.setAttribute('aria-expanded', 'true'); }
+        document.body.style.overflow = 'hidden';
+      }
+      function closeCart() {
+        if (drawer) drawer.classList.remove('is-open');
+        if (backdrop) backdrop.classList.remove('is-visible');
+        if (trigger) { trigger.setAttribute('aria-expanded', 'false'); }
+        document.body.style.overflow = '';
+      }
+      function addToCart(item, qty) {
+        qty = qty || 1;
+        if (item.isAddon) {
+          var found = cart.find(function(it) { return it.id === item.id && it.isAddon; });
+          if (found) found.qty = (found.qty || 1) + qty;
+          else cart.push({ id: item.id, name: item.name, price: item.price, img: item.img || MAIN_PRODUCT.img, qty: qty, isAddon: true });
+        } else {
+          var found = cart.find(function(it) { return it.id === item.id && !it.isAddon; });
+          if (found) found.qty = (found.qty || 1) + qty;
+          else cart.push({ id: item.id, name: item.name, price: item.price, img: item.img, qty: qty, isAddon: false });
+        }
+        renderCart();
+        updateAddonVisibility();
+        openCart();
+      }
+      trigger && trigger.addEventListener('click', openCart);
+      closeBtn && closeBtn.addEventListener('click', closeCart);
+      backdrop && backdrop.addEventListener('click', closeCart);
+      checkoutBtn && checkoutBtn.addEventListener('click', function() {
+        if (getTotalItems() === 0) return;
+        closeCart();
+        if (modal) { modal.classList.add('is-visible'); modal.setAttribute('aria-hidden', 'false'); }
+      });
+      modalClose && modalClose.addEventListener('click', function() {
+        if (modal) { modal.classList.remove('is-visible'); modal.setAttribute('aria-hidden', 'true'); }
+      });
+      modal && modal.addEventListener('click', function(e) {
+        if (e.target === modal) { modal.classList.remove('is-visible'); modal.setAttribute('aria-hidden', 'true'); }
+      });
+      window.addToCart = addToCart;
+      window.MAIN_PRODUCT = MAIN_PRODUCT;
+      window.updateAddonVisibility = updateAddonVisibility;
+      renderCart();
+
+      document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.js-cart-addon');
+        if (!btn || !window.addToCart) return;
+        var product = btn.getAttribute('data-product') || 'Add-on';
+        var price = parseInt(btn.getAttribute('data-price'), 10) || 0;
+        var img = btn.getAttribute('data-img') || '';
+        window.addToCart({ id: 'addon-' + product.replace(/\s+/g, '-').toLowerCase(), name: product, price: price, img: img, isAddon: true }, 1);
+      });
+    })();
+
+    // Product block quantity +/- and Add to cart
+    (function() {
+      var form = document.querySelector('.product-block__form');
+      if (!form) return;
+      var input = form.querySelector('.product-block__qty-input');
+      var addBtn = document.getElementById('product-add-btn');
+      var minus = form.querySelector('[data-qty-minus]');
+      var plus = form.querySelector('[data-qty-plus]');
+      if (minus) minus.addEventListener('click', function() {
+        var v = parseInt(input.value, 10) || 1;
+        input.value = Math.max(1, v - 1);
+      });
+      if (plus) plus.addEventListener('click', function() {
+        var v = parseInt(input.value, 10) || 1;
+        input.value = Math.min(9, v + 1);
+      });
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (addBtn && addBtn.classList.contains('is-loading')) return;
+        if (addBtn) { addBtn.classList.add('is-loading'); addBtn.disabled = true; }
+        var qty = parseInt(input.value, 10) || 1;
+        setTimeout(function() {
+          if (addBtn) { addBtn.classList.remove('is-loading'); addBtn.disabled = false; }
+          if (window.addToCart && window.MAIN_PRODUCT) {
+            window.addToCart({ id: 'book', name: window.MAIN_PRODUCT.name, price: window.MAIN_PRODUCT.price, img: window.MAIN_PRODUCT.img }, qty);
+          }
+        }, 600);
+      });
+    })();
+
+    // Product gallery carousel (prev/next, dots, sync)
+    (function() {
+      var track = document.getElementById('product-gallery-track');
+      var dotsCont = document.getElementById('product-gallery-dots');
+      var prevBtn = document.getElementById('product-gallery-prev');
+      var nextBtn = document.getElementById('product-gallery-next');
+      if (!track) return;
+      var slides = track.querySelectorAll('.product-gallery__slide');
+      var n = slides.length;
+      if (n === 0) return;
+
+      function getIndex() {
+        var w = track.offsetWidth;
+        var s = track.scrollLeft;
+        return Math.round(s / w);
+      }
+      function goTo(i) {
+        i = Math.max(0, Math.min(i, n - 1));
+        var w = track.offsetWidth;
+        track.scrollTo({ left: i * w, behavior: 'smooth' });
+        updateUI(i);
+      }
+      function updateUI(i) {
+        if (dotsCont && dotsCont.children[i]) {
+          for (var d = 0; d < dotsCont.children.length; d++) {
+            dotsCont.children[d].classList.toggle('is-active', d === i);
+          }
+        }
+        if (prevBtn) prevBtn.disabled = i <= 0;
+        if (nextBtn) nextBtn.disabled = i >= n - 1;
+      }
+      for (var i = 0; i < n; i++) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'product-gallery__dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', (function(idx) { return function() { goTo(idx); }; }(i)));
+        dotsCont.appendChild(dot);
+      }
+      if (prevBtn) prevBtn.addEventListener('click', function() { goTo(getIndex() - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function() { goTo(getIndex() + 1); });
+      track.addEventListener('scroll', function() {
+        var i = getIndex();
+        if (i >= 0 && i < n) updateUI(i);
+      });
+      updateUI(0);
+    })();
+
+    // Add-on forms (Customers also bought)
+    document.querySelectorAll('.js-addon-form').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('.addon-add-btn');
+        if (btn && btn.classList.contains('is-loading')) return;
+        if (btn) { btn.classList.add('is-loading'); btn.disabled = true; }
+        var product = form.getAttribute('data-product') || 'Add-on';
+        var price = parseInt(form.getAttribute('data-price'), 10) || 0;
+        var parent = form.closest('.addons-products__item');
+        var imgEl = parent ? parent.querySelector('.addons-products__item-img img') : null;
+        var img = imgEl ? imgEl.src : '';
+        setTimeout(function() {
+          if (btn) { btn.classList.remove('is-loading'); btn.disabled = false; }
+          if (window.addToCart) {
+            window.addToCart({ id: 'addon-' + product.replace(/\s+/g, '-').toLowerCase(), name: product, price: price, img: img, isAddon: true }, 1);
+          }
+        }, 400);
+      });
+    });
+
+    // Newsletter form (placeholder)
+    document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thanks for subscribing! (Connect to your email provider.)');
+    });
+  </script>
+</body>
+</html>
+
