@@ -62,6 +62,11 @@ async function processFile(sharp, inputPath, outDir, opts) {
     .webp({ quality: opts.webpQuality, effort: 6 })
     .toFile(outPathWebp);
 
+  // Also write WebP next to source so HTML can use <picture> with same paths
+  const srcDir = path.dirname(inputPath);
+  const inPlaceWebp = path.join(srcDir, base + '.webp');
+  try { fs.copyFileSync(outPathWebp, inPlaceWebp); } catch (_) {}
+
   let pipeline2 = sharp(buf);
   if (resize) pipeline2 = pipeline2.resize(resize.width, null, { withoutEnlargement: true });
   if (isPng) {

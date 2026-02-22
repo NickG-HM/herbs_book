@@ -18,7 +18,7 @@
   <!-- Non-blocking fonts: load CSS without delaying first paint -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
-  <!-- Preload LCP image (first product slide) for faster first paint -->
+  <!-- Preload LCP image (first product slide) for faster first paint. Use .webp after running: npm run compress-images -->
   <link rel="preload" as="image" href="heroproductimages/COVER_01.png" fetchpriority="high">
   <!-- Optimize image loading: lazy below fold, async decoding, explicit dimensions -->
   <style>
@@ -2247,11 +2247,11 @@
         <div class="product-gallery">
           <div class="product-gallery__main">
             <div class="product-gallery__track" id="product-gallery-track">
-              <div class="product-gallery__slide"><img src="heroproductimages/COVER_01.png" alt="The Modern Home Apothecary — book cover" width="600" height="800" loading="eager" decoding="async" fetchpriority="high" sizes="(max-width: 640px) 100vw, 600px"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070619_13260c38-9444-4360-a708-d3b4f836a6c0.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 600px" fetchpriority="low"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045312_e273ec57-da6d-42ab-a3c4-3678b363dc5b.jpeg" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 600px" fetchpriority="low"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045552_49899ad8-b048-43fb-9fe8-7e804381fe06.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 600px" fetchpriority="low"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045611_cbdefcb1-6408-4ab4-bfff-7911ade5c03f.jpeg" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 600px" fetchpriority="low"></div>
+              <div class="product-gallery__slide"><picture><source type="image/webp" srcset="heroproductimages/COVER_01.webp"><img src="heroproductimages/COVER_01.png" alt="The Modern Home Apothecary — book cover" width="600" height="800" loading="eager" decoding="async" fetchpriority="high" sizes="(max-width: 640px) 100vw, 600px"></picture></div>
+              <div class="product-gallery__slide"><img data-src="heroproductimages/hf_20260218_070619_13260c38-9444-4360-a708-d3b4f836a6c0.png" alt="Recipe example" width="600" height="800" decoding="async" sizes="(max-width: 640px) 100vw, 600px"></div>
+              <div class="product-gallery__slide"><img data-src="heroproductimages/hf_20260222_045312_e273ec57-da6d-42ab-a3c4-3678b363dc5b.jpeg" alt="Recipe example" width="600" height="800" decoding="async" sizes="(max-width: 640px) 100vw, 600px"></div>
+              <div class="product-gallery__slide"><img data-src="heroproductimages/hf_20260222_045552_49899ad8-b048-43fb-9fe8-7e804381fe06.png" alt="Recipe example" width="600" height="800" decoding="async" sizes="(max-width: 640px) 100vw, 600px"></div>
+              <div class="product-gallery__slide"><img data-src="heroproductimages/hf_20260222_045611_cbdefcb1-6408-4ab4-bfff-7911ade5c03f.jpeg" alt="Recipe example" width="600" height="800" decoding="async" sizes="(max-width: 640px) 100vw, 600px"></div>
             </div>
             <div class="product-gallery__arrows">
               <button type="button" class="product-gallery__arrow" id="product-gallery-prev" aria-label="Previous image">←</button>
@@ -2264,7 +2264,7 @@
         <!-- Product info: add to cart, shipping, description, FAQ, delivery -->
         <div class="product-block">
         <h2 class="product-block__title">The Modern Home Apothecary</h2>
-        <p class="product-block__subtitle">250 plants and botanical recipes for everyday use</p>
+        <p class="product-block__subtitle">250 botanical recipes for everyday use</p>
         <div class="product-rating" aria-label="4.9 out of 5 stars based on 324 reviews">
           <span class="product-rating__stars" aria-hidden="true">★★★★★</span>
           <span class="product-rating__value">4.9</span>
@@ -2358,8 +2358,8 @@
 
     <!-- Hero product video: between add-ons and intro (includes "Nature itself is the best physician") -->
     <section class="hero-video" aria-label="Product video">
-      <video autoplay muted loop playsinline aria-hidden="true" preload="metadata" poster="heroproductimages/COVER_01.png" data-src="video/Hero_Video_1920x1080_HB.mp4">
-        <source data-src="video/Hero_Video_1920x1080_HB.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline aria-hidden="true" preload="metadata" poster="heroproductimages/COVER_01.png" src="video/Hero_Video_1920x1080_HB.mp4">
+        <source src="video/Hero_Video_1920x1080_HB.mp4" type="video/mp4">
       </video>
       <div class="hero-video__overlay" aria-hidden="true">
         <p class="hero-video__quote">Nature itself is the best physician.</p>
@@ -2588,10 +2588,13 @@
           <h2 class="text-h2">About the Author</h2>
         </div>
         <div class="author-image">
-          <img src="assets/images/marie-clark-author.png" alt="Marie Clark, Author" width="280" height="329" loading="lazy" decoding="async" sizes="280px" fetchpriority="low">
+          <picture>
+            <source type="image/webp" srcset="assets/images/marie-clark-author.webp">
+            <img src="assets/images/marie-clark-author.png" alt="Marie Clark, Author" width="280" height="329" loading="lazy" decoding="async" sizes="280px" fetchpriority="low">
+          </picture>
         </div>
         <p class="text-body" style="text-align: center;">
-          Marie Clark, PhD, offers a distinctive approach to natural health, shaped by her own personal challenges. Now a recognised Herbalist and trusted expert in holistic wellbeing, she draws on a deep understanding of the plant world and her Mediterranean ancestry-rooted in spagyric Greek medicine. Marie has created a herbal range designed to support physical vitality while also nurturing emotional wellbeing.
+          Marie Clark, PhD, is a botanical researcher and educator whose practical approach to herbalism is rooted in her Vermont childhood, where she grew up foraging wild plants with her family. She later earned her doctorate in Ethnobotany and Integrative Plant Sciences at the University of British Columbia, focusing on how traditional North American herbal practices can be adapted safely for everyday use. After more than fifteen years teaching home‑apothecary workshops, she created The Modern Home Apothecary as a clear, accessible reference for anyone wanting to prepare teas, tinctures, salves, and botanical recipes with confidence.
         </p>
       </div>
     </section>
@@ -2665,24 +2668,6 @@
   </footer>
 
   <script>
-    // Load hero video after first paint so it doesn't block initial render
-    (function() {
-      var video = document.querySelector('.hero-video video');
-      if (!video) return;
-      var src = video.getAttribute('data-src') || video.querySelector('source') && video.querySelector('source').getAttribute('data-src');
-      if (!src) return;
-      function loadVideo() {
-        var s = video.querySelector('source');
-        if (s) s.src = s.getAttribute('data-src') || src;
-        video.load();
-      }
-      if (typeof requestIdleCallback !== 'undefined') {
-        requestIdleCallback(loadVideo, { timeout: 1500 });
-      } else {
-        setTimeout(loadVideo, 100);
-      }
-    })();
-
     // Header scroll state
     (function() {
       var header = document.getElementById('header');
@@ -3005,7 +2990,8 @@
       });
     })();
 
-    // Product gallery carousel (prev/next, dots, sync)
+    // Product gallery carousel (prev/next, dots, sync). Images load in page order: slide 1 first, then 2–5 when shown or preloaded.
+    // Cached track width + ResizeObserver to avoid forced reflow (Lighthouse).
     (function() {
       var track = document.getElementById('product-gallery-track');
       var dotsCont = document.getElementById('product-gallery-dots');
@@ -3016,18 +3002,38 @@
       var n = slides.length;
       if (n === 0) return;
 
+      var trackWidth = track.offsetWidth;
+      if (typeof ResizeObserver !== 'undefined') {
+        var ro = new ResizeObserver(function() { trackWidth = track.offsetWidth; });
+        ro.observe(track);
+      } else {
+        window.addEventListener('resize', function() { trackWidth = track.offsetWidth; });
+      }
+
+      function ensureSlideLoaded(i) {
+        if (i < 0 || i >= n) return;
+        var img = slides[i].querySelector('img');
+        if (!img) return;
+        var dataSrc = img.getAttribute('data-src');
+        if (dataSrc && !img.src) {
+          img.src = dataSrc;
+          img.removeAttribute('data-src');
+        }
+      }
       function getIndex() {
-        var w = track.offsetWidth;
         var s = track.scrollLeft;
-        return Math.round(s / w);
+        return trackWidth > 0 ? Math.round(s / trackWidth) : 0;
       }
       function goTo(i) {
         i = Math.max(0, Math.min(i, n - 1));
-        var w = track.offsetWidth;
-        track.scrollTo({ left: i * w, behavior: 'smooth' });
+        ensureSlideLoaded(i);
+        ensureSlideLoaded(i + 1);
+        ensureSlideLoaded(i - 1);
+        track.scrollTo({ left: i * trackWidth, behavior: 'smooth' });
         updateUI(i);
       }
       function updateUI(i) {
+        ensureSlideLoaded(i);
         if (dotsCont && dotsCont.children[i]) {
           for (var d = 0; d < dotsCont.children.length; d++) {
             dotsCont.children[d].classList.toggle('is-active', d === i);
@@ -3052,6 +3058,12 @@
         if (i >= 0 && i < n) updateUI(i);
       });
       updateUI(0);
+      // Preload slide 2 after LCP / idle so "Next" is fast; keeps load order: 1 then 2 then 3…
+      if (typeof requestIdleCallback !== 'undefined') {
+        requestIdleCallback(function() { ensureSlideLoaded(1); }, { timeout: 800 });
+      } else {
+        setTimeout(function() { ensureSlideLoaded(1); }, 400);
+      }
     })();
 
     // Add-on form: one "Add to cart" in addons section — adds BOTH the add-on AND 1 book

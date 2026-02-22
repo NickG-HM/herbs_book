@@ -1,0 +1,31 @@
+# Long cache for static assets (Lighthouse: "Use efficient cache lifetimes")
+# Used by Netlify / Cloudflare Pages. For GitHub Pages, enable in repo Settings or use a proxy.
+# 1 year for immutable assets; 1 week for HTML
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+/heroproductimages/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/video/*
+  Cache-Control: public, max-age=31536000, immutable
+/herbs_book/*
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+/*.mp4
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML: shorter cache so updates deploy quickly
+/*.html
+  Cache-Control: public, max-age=604800
