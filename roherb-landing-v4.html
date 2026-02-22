@@ -7,14 +7,14 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="theme-color" content="#1d5c45">
   <title>The Modern Home Apothecary | Verdant Press — 250 Plants & Botanical Recipes</title>
-  <meta name="description" content="The Modern Home Apothecary: 250 herbal recipes and 250 plant profiles. Teas, tinctures, salves, syrups, and alcohol-free preparations. A practical reference for everyday use. Ships in 2–5 days. 60-day money-back guarantee.">
+  <meta name="description" content="The Modern Home Apothecary: 250 herbal recipes and 250 plant profiles. Teas, tinctures, salves, syrups, and alcohol-free preparations. A practical reference for everyday use. Ships in 4–7 days. 30-day money-back guarantee.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Preload LCP image (first product slide) for faster first paint -->
-  <link rel="preload" as="image" href="heroproductimages/hf_20260218_070557_3ef5fe9c-278e-412d-9c50-636f087f5c41.png">
+  <link rel="preload" as="image" href="heroproductimages/COVER_01.png">
   <style>
     /* ─── Design system: 8px grid, Apple/Nike-level polish ─── */
     :root {
@@ -514,7 +514,7 @@
       width: 100%;
       justify-content: center;
     }
-    /* Out-of-stock modal */
+    /* Pre-order waitlist modal (after proceed to checkout) */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -530,10 +530,10 @@
     }
     .modal-overlay.is-visible { opacity: 1; visibility: visible; }
     .modal {
-      background: var(--bg-section);
+      background: #f5f2eb;
       border-radius: var(--radius-lg);
-      padding: var(--space-8);
-      max-width: 360px;
+      padding: var(--space-10) var(--space-8);
+      max-width: 420px;
       width: 100%;
       text-align: center;
       box-shadow: var(--shadow-lg);
@@ -541,10 +541,63 @@
       transition: transform var(--transition-slow);
     }
     .modal-overlay.is-visible .modal { transform: scale(1); }
-    .modal__title { font-size: 1.25rem; margin: 0 0 var(--space-3); }
-    .modal__text { color: var(--text-muted); margin: 0 0 var(--space-6); }
+    .modal__headline-accent {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(0.875rem, 2.5vw, 1rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #c4a84a;
+      margin: 0 0 var(--space-1);
+      line-height: 1.3;
+    }
+    .modal__headline-main {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(1.5rem, 4vw, 1.875rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin: 0 0 var(--space-6);
+      line-height: 1.2;
+    }
+    .modal__text {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--text);
+      margin: 0 0 var(--space-6);
+    }
+    .modal__text strong { font-weight: 600; }
+    .modal__text s { color: var(--text-muted); }
+    .modal__form {
+      margin: 0 0 var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      align-items: stretch;
+    }
+    .modal__input {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      background: #fff;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .modal__input::placeholder { color: var(--text-subtle); }
+    .modal__input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-muted);
+    }
     .modal__btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
       padding: var(--space-4) var(--space-6);
       background: var(--accent);
       color: #fff;
@@ -555,8 +608,21 @@
       font-weight: 600;
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
+      transition: background var(--transition);
     }
     .modal__btn:hover { background: var(--accent-hover); }
+    .modal__btn--close {
+      background: transparent;
+      color: var(--text-muted);
+      margin-top: var(--space-2);
+    }
+    .modal__btn--close:hover { background: var(--border-subtle); color: var(--text); }
+    .modal__disclaimer {
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin: 0;
+    }
 
     /* ─── Buttons & CTAs ─── */
     .cta-primary {
@@ -619,6 +685,9 @@
       aspect-ratio: 16 / 9;
       overflow: hidden;
       background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     @media (min-width: 1024px) {
       .hero-video { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
@@ -629,6 +698,25 @@
       object-fit: contain;
       display: block;
       vertical-align: middle;
+      filter: brightness(0.75);
+    }
+    .hero-video__overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .hero-video__quote {
+      margin: 0;
+      padding: var(--space-4) var(--space-6);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 1px 3px rgba(0,0,0,.4);
     }
 
     /* ─── Hero ─── */
@@ -1045,7 +1133,18 @@
       font-family: 'DM Serif Display', Georgia, serif;
       margin: 0;
     }
-    .book-blurb-banner__text--who-for { margin-top: 0; }
+    .book-blurb-banner__text--who-for {
+      margin-top: 0;
+      text-align: left;
+      list-style: disc;
+      list-style-position: outside;
+      padding-left: 1.25em;
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: auto;
+    }
+    .book-blurb-banner__text--who-for li { margin-bottom: var(--space-2); }
+    .book-blurb-banner__text--who-for li:last-child { margin-bottom: 0; }
 
     /* ─── Trust strip ─── */
     .trust-strip {
@@ -1355,6 +1454,8 @@
       contain-intrinsic-size: auto 400px;
     }
     #intro { padding-bottom: 0; }
+    #publisher { padding-bottom: 1px; }
+    #author { padding-top: 1px; }
     .section--dark {
       background: linear-gradient(165deg, #0d0d0d 0%, #1a1a1a 100%);
       color: #f5f5f5;
@@ -1805,13 +1906,13 @@
       }
     }
     .addons-products__heading {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
       font-weight: 400;
       margin: 0 0 var(--space-6);
-      color: var(--text);
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      text-align: center;
     }
     .addons-products__list {
       display: grid;
@@ -1826,7 +1927,6 @@
     }
     .addons-products__item-img {
       width: 100%;
-      aspect-ratio: 3 / 1;
       border-radius: 0;
       overflow: hidden;
       background: var(--border-subtle);
@@ -1834,8 +1934,10 @@
     }
     .addons-products__item-img img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      object-position: center;
     }
     .addons-products__item-name {
       font-family: 'DM Serif Display', Georgia, serif;
@@ -1846,6 +1948,16 @@
       letter-spacing: -0.01em;
       line-height: 1.2;
     }
+    .addons-products__item-desc {
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin: 0 0 var(--space-4);
+      max-width: 36em;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .addons-products__item .addon-add-btn { margin-top: 0; }
     @media (max-width: 599px) {
       .addons-products__list {
         grid-template-columns: 1fr;
@@ -2049,26 +2161,10 @@
         <h3>Customers also bought</h3>
         <div class="cart-drawer__also-list">
           <div class="cart-drawer__also-item" data-addon-id="addon-herbal-starter-kit">
-            <div class="cart-drawer__also-item-img"><img src="assets/images/herbal-starter-kit.png" alt="Herbal Starter Kit" width="120" height="120" loading="lazy" decoding="async"></div>
+            <div class="cart-drawer__also-item-img"><img src="assets/images/herba-starter.jpeg" alt="Herbal Starter Kit" width="120" height="120" loading="lazy" decoding="async"></div>
             <span class="cart-drawer__also-item-name">Herbal Starter Kit</span>
             <span class="cart-drawer__also-item-price">+$32.00</span>
-            <button type="button" class="cart-addon-btn js-cart-addon" data-product="Herbal Starter Kit" data-price="32" data-img="assets/images/herbal-starter-kit.png" aria-label="Add Herbal Starter Kit to cart">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="0" y="9" width="20" height="2"/><rect x="10" y="20" width="20" height="2" transform="rotate(-90 10 20)"/></svg>
-            </button>
-          </div>
-          <div class="cart-drawer__also-item" data-addon-id="addon-apothecary-jars-set">
-            <div class="cart-drawer__also-item-img"><img src="assets/images/apothecary-jars-set.png" alt="Apothecary Jars Set" width="120" height="120" loading="lazy" decoding="async"></div>
-            <span class="cart-drawer__also-item-name">Apothecary Jars Set</span>
-            <span class="cart-drawer__also-item-price">+$18.00</span>
-            <button type="button" class="cart-addon-btn js-cart-addon" data-product="Apothecary Jars Set" data-price="18" data-img="assets/images/apothecary-jars-set.png" aria-label="Add Apothecary Jars Set to cart">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="0" y="9" width="20" height="2"/><rect x="10" y="20" width="20" height="2" transform="rotate(-90 10 20)"/></svg>
-            </button>
-          </div>
-          <div class="cart-drawer__also-item" data-addon-id="addon-dried-herb-collection">
-            <div class="cart-drawer__also-item-img"><img src="assets/images/dried-herb-collection.png" alt="Dried Herb Collection" width="120" height="120" loading="lazy" decoding="async"></div>
-            <span class="cart-drawer__also-item-name">Dried Herb Collection</span>
-            <span class="cart-drawer__also-item-price">+$24.00</span>
-            <button type="button" class="cart-addon-btn js-cart-addon" data-product="Dried Herb Collection" data-price="24" data-img="assets/images/dried-herb-collection.png" aria-label="Add Dried Herb Collection to cart">
+            <button type="button" class="cart-addon-btn js-cart-addon" data-product="Herbal Starter Kit" data-price="32" data-img="assets/images/herba-starter.jpeg" aria-label="Add Herbal Starter Kit to cart">
               <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="0" y="9" width="20" height="2"/><rect x="10" y="20" width="20" height="2" transform="rotate(-90 10 20)"/></svg>
             </button>
           </div>
@@ -2084,12 +2180,20 @@
     </div>
   </aside>
 
-  <!-- Out-of-stock modal -->
+  <!-- Pre-order waitlist modal (after proceed to checkout) -->
   <div class="modal-overlay" id="out-of-stock-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
     <div class="modal">
-      <h3 class="modal__title" id="modal-title">Sorry, we're out of stock</h3>
-      <p class="modal__text">We're restocking soon. Please check back later or join our newsletter to get notified.</p>
-      <button type="button" class="modal__btn" id="modal-close">OK</button>
+      <p class="modal__headline-accent" id="modal-title">Be the first to get</p>
+      <h2 class="modal__headline-main">The Modern Home Apothecary</h2>
+      <p class="modal__text">
+        Thank you for choosing it! We are still putting the final touches on The Modern Home Apothecary. Join the pre-order waitlist with the <strong>50% discount</strong> (<s>$79</s> $39). We'll email you the moment it becomes available.
+      </p>
+      <form class="modal__form" id="waitlist-form" novalidate>
+        <input type="email" class="modal__input" id="waitlist-email" placeholder="Enter your email" required aria-label="Email address">
+        <button type="submit" class="modal__btn" id="waitlist-submit">Join waitlist</button>
+      </form>
+      <p class="modal__disclaimer">By signing up you agree to receive e-mails from Verdant Press. You can unsubscribe anytime.</p>
+      <button type="button" class="modal__btn modal__btn--close" id="modal-close">Close</button>
     </div>
   </div>
 
@@ -2110,6 +2214,9 @@
       <video autoplay muted loop playsinline aria-hidden="true" preload="metadata">
         <source src="video/Hero_Video_1920x1080_HB.mp4" type="video/mp4">
       </video>
+      <div class="hero-video__overlay" aria-hidden="true">
+        <p class="hero-video__quote">Nature itself is the best physician.</p>
+      </div>
     </section>
 
     <!-- Product section: image carousel + add to cart (right after video) -->
@@ -2119,10 +2226,11 @@
         <div class="product-gallery">
           <div class="product-gallery__main">
             <div class="product-gallery__track" id="product-gallery-track">
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070557_3ef5fe9c-278e-412d-9c50-636f087f5c41.png" alt="The Modern Home Apothecary — book cover" width="600" height="800" loading="eager" decoding="async" fetchpriority="high"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070652_025e38b0-0fee-4864-87b5-a3ee0d76ca45.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/COVER_01.png" alt="The Modern Home Apothecary — book cover" width="600" height="800" loading="eager" decoding="async" fetchpriority="high"></div>
               <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070619_13260c38-9444-4360-a708-d3b4f836a6c0.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070632_a8efce7d-6abe-48ec-9062-ac5a517b952e.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045312_e273ec57-da6d-42ab-a3c4-3678b363dc5b.jpeg" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045552_49899ad8-b048-43fb-9fe8-7e804381fe06.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045611_cbdefcb1-6408-4ab4-bfff-7911ade5c03f.jpeg" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
             </div>
             <div class="product-gallery__arrows">
               <button type="button" class="product-gallery__arrow" id="product-gallery-prev" aria-label="Previous image">←</button>
@@ -2136,10 +2244,10 @@
         <div class="product-block">
         <h2 class="product-block__title">The Modern Home Apothecary</h2>
         <p class="product-block__subtitle">250 plants and botanical recipes for everyday use</p>
-        <div class="product-rating" aria-label="4.9 out of 5 stars based on 300 reviews">
+        <div class="product-rating" aria-label="4.9 out of 5 stars based on 324 reviews">
           <span class="product-rating__stars" aria-hidden="true">★★★★★</span>
           <span class="product-rating__value">4.9</span>
-          <span class="product-rating__reviews">(300 reviews)</span>
+          <span class="product-rating__reviews">324 reviews</span>
         </div>
         <div class="product-block__price">$79.00</div>
 
@@ -2161,13 +2269,13 @@
 
         <p class="product-block__delivery">
           Shipping calculated at checkout.<br>
-          Estimated delivery: <b>2–5 business days</b> within the US.
+          Estimated delivery: <b>4–7 business days</b> within the US.
         </p>
 
         <div class="product-block__advantages">
-          <span class="product-block__advantage">60-day money-back guarantee</span>
+          <span class="product-block__advantage">30-day money-back guarantee</span>
           <span class="product-block__advantage">Secure payments</span>
-          <span class="product-block__advantage">Ships in 2–5 business days</span>
+          <span class="product-block__advantage">Ships in 4–7 business days</span>
         </div>
 
         <div class="product-block__accordions">
@@ -2175,8 +2283,8 @@
             <button type="button" class="product-block__accordion-btn" aria-expanded="false" aria-controls="product-desc" id="product-desc-btn">Description</button>
             <div class="product-block__accordion-content" id="product-desc" role="region" aria-labelledby="product-desc-btn">
               <div class="product-block__accordion-inner">
-                <p>A beautifully illustrated, practical reference for making teas, tinctures, syrups, salves, infused oils, and alcohol-free preparations. <em>The Modern Home Apothecary</em> was created as a working reference — designed so you can find what you need in under a minute.</p>
-                <p>250 herbal recipes and 250 plant profiles, organized for clarity, speed, and real-world use. Full-color hardcover, 500+ pages.</p>
+                <p><em>Modern Home Apothecary</em> is a practical, full‑color guide designed to help you use plants confidently in everyday life. Inside, you'll find 250 recipes organised by purpose—supporting sleep, digestion, skin health, daily routines, and general body care. From calming teas and digestive bitters to skin‑soothing salves, restorative oils, syrups, baths, steams, and other simple remedies, each preparation includes exact measurements, step‑by‑step instructions, storage guidance, and clear safety notes.</p>
+                <p>The book also features concise plant profiles with essential context, making it easy to choose the right herb for the right purpose. With purpose‑based indexes, preparation‑based sections, time and complexity tags, and alcohol‑free alternatives, the layout is built for quick navigation and real‑world use. Thoughtfully structured for beginners yet reliable enough for long‑term reference, <em>Modern Home Apothecary</em> offers a grounded, accessible approach to caring for the body with everyday botanical preparations.</p>
               </div>
             </div>
           </div>
@@ -2185,11 +2293,11 @@
             <button type="button" class="product-block__accordion-btn" aria-expanded="false" aria-controls="product-faq" id="product-faq-btn">FAQ</button>
             <div class="product-block__accordion-content" id="product-faq" role="region" aria-labelledby="product-faq-btn">
               <div class="product-block__accordion-inner">
-                <p><strong>Is this book beginner-friendly?</strong><br>Yes. All instructions are clear and step-by-step.</p>
+                <p><strong>Is this book beginner-friendly?</strong><br>Yes. All instructions are clear and step-by-step. No basic knowledge required.</p>
                 <p><strong>Does it include alcohol-free options?</strong><br>Yes. Many recipes include alcohol-free alternatives.</p>
                 <p><strong>Is this medical advice?</strong><br>No. This book is for educational purposes only.</p>
-                <p><strong>What format is the book?</strong><br>Hardcover, full-color print.</p>
-                <p><strong>How long does shipping take?</strong><br>Orders ship within 2–5 business days.</p>
+                <p><strong>Is this dermatologically approved?</strong><br>Skin types can vary, so cautions and safety considerations are included throughout.</p>
+                <p><strong>Are the ingredients easy to find?</strong><br>Most ingredients are readily available in local shops in the USA.</p>
               </div>
             </div>
           </div>
@@ -2198,7 +2306,7 @@
             <button type="button" class="product-block__accordion-btn" aria-expanded="false" aria-controls="product-delivery" id="product-delivery-btn">Delivery</button>
             <div class="product-block__accordion-content" id="product-delivery" role="region" aria-labelledby="product-delivery-btn">
               <div class="product-block__accordion-inner">
-                <p><strong>Order processing</strong><br>All orders are processed within 2–5 business days. We do not ship on weekends or holidays.</p>
+                <p><strong>Order processing</strong><br>All orders are processed within 4–7 business days. We do not ship on weekends or holidays.</p>
                 <p><strong>Shipping</strong><br>Shipping and taxes are calculated at checkout. Delivery times vary by location. For details, see our Shipping Policy.</p>
                 <p><strong>Contact</strong><br>For questions about your order, contact us at <a href="mailto:support@verdantpress.com">support@verdantpress.com</a>.</p>
               </div>
@@ -2216,21 +2324,12 @@
         <div class="addons-products__list">
           <div class="addons-products__item">
             <div class="addons-products__item-img">
-              <img src="assets/images/herbal-starter-kit.png" alt="Herbal Starter Kit" width="120" height="120" loading="lazy" decoding="async">
+              <img src="assets/images/herba-starter.jpeg" alt="Herbal Starter" width="377" height="126" loading="lazy" decoding="async">
             </div>
-            <span class="addons-products__item-name">Herbal Starter Kit</span>
-          </div>
-          <div class="addons-products__item">
-            <div class="addons-products__item-img">
-              <img src="assets/images/apothecary-jars-set.png" alt="Apothecary Jars Set" width="120" height="120" loading="lazy" decoding="async">
-            </div>
-            <span class="addons-products__item-name">Apothecary Jars Set</span>
-          </div>
-          <div class="addons-products__item">
-            <div class="addons-products__item-img">
-              <img src="assets/images/dried-herb-collection.png" alt="Dried Herb Collection" width="120" height="120" loading="lazy" decoding="async">
-            </div>
-            <span class="addons-products__item-name">Dried Herb Collection</span>
+            <p class="addons-products__item-desc">A premium apothecary essentials set: 17 curated herbs, spices, roots, and salts in elegant matching jars made to brew, season, and display beautifully.</p>
+            <form class="js-addon-form" data-product="Herbal Starter Kit" data-price="32">
+              <button type="submit" class="addon-add-btn cta-primary">Add to cart</button>
+            </form>
           </div>
         </div>
       </div>
@@ -2251,11 +2350,7 @@
             <span class="text-eyebrow">The approach</span>
             <h2 class="text-h1">A practical herbal reference you'll <span class="highlight">actually use</span>.</h2>
             <p>
-              Most herbal books are inspiring but difficult to navigate when you need something specific.
-              <em>The Modern Home Apothecary</em> was created as a working reference — not a coffee-table book.
-            </p>
-            <p>
-              Every recipe and herb profile is organized for clarity, speed, and real-world use.
+              Many herbal books inspire, but few help you quickly find what you actually need. <em>The Modern Home Apothecary</em> was created as a practical, everyday reference. Its recipes and herb profiles use ingredients that are easy to source from any local shop, and for those who want a seamless start, we offer a complete starter kit with the core essentials.
             </p>
           </div>
           <div class="media">
@@ -2298,8 +2393,8 @@
       <div class="container">
         <div class="section-heading">
           <span class="text-eyebrow">What's inside</span>
-          <h2 class="text-h2">500+ pages of practical reference</h2>
-          <p class="included-sub">250 recipes + 250 plant profiles, organized for everyday use.</p>
+          <h2 class="text-h2">400+ pages of practical reference</h2>
+          <p class="included-sub">250 recipes and plant profiles, organized by purpose.</p>
         </div>
         <div class="included-cards">
           <article class="included-card">
@@ -2332,13 +2427,11 @@
               <h3 class="card-title">Plant Profiles</h3>
             </div>
             <ul class="card-checklist">
-              <li>Common and Latin name</li>
-              <li>Plant parts used</li>
-              <li>Traditional background</li>
-              <li>Recommended preparation methods</li>
+              <li>Scientific and popular name</li>
+              <li>Historical and traditional background</li>
+              <li>Scientific components information</li>
               <li>Safety considerations & cautions</li>
             </ul>
-            <p class="card-note">Written for beginners and useful as a long-term reference.</p>
           </article>
         </div>
       </div>
@@ -2398,8 +2491,11 @@
         <div class="section-heading book-blurb-banner__heading">
           <h2 class="text-h2 book-blurb-banner__title">Who this book is for</h2>
         </div>
-        <p class="book-blurb-banner__text book-blurb-banner__text--who-for">Anyone building a practical home reference library. Beginners looking for clear, structured guidance. Readers interested in traditional botanical knowledge. People who want a book they'll return to again and again.</p>
-        <p class="book-blurb-banner__text" style="margin-top: var(--space-4); margin-bottom: 0; font-size: 1rem;">No prior herbal experience required.</p>
+        <ul class="book-blurb-banner__text book-blurb-banner__text--who-for">
+          <li>Anyone building a practical home reference library.</li>
+          <li>Beginners looking for clear, structured guidance.</li>
+          <li>Readers interested in traditional botanical knowledge.</li>
+        </ul>
       </div>
     </section>
 
@@ -2411,8 +2507,7 @@
           <h2 class="text-h2">About Verdant Press</h2>
         </div>
         <p class="text-body" style="text-align: center;">
-          Verdant Press creates clear, well-designed reference books focused on traditional knowledge presented responsibly for modern readers.
-          Our work emphasizes usability, structure, and clarity over trends or exaggeration.
+          Verdant Press creates clear, beautifully designed reference books that makes science accessible to today's readers. We prioritise usability, structure, and clarity over trends, hype, or overstatement.
         </p>
       </div>
     </section>
@@ -2426,33 +2521,33 @@
         <div class="carousel-scroll experts-cards">
           <article class="expert-card">
             <div class="expert-photo">
-              <img src="assets/images/celebrity-1.png" alt="Pharrell Williams" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
+              <img src="assets/images/lauren-conrad.png" alt="Lauren Conrad" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
               <div class="expert-photo-placeholder">Add photo</div>
             </div>
-            <h3 class="expert-name">Pharrell Williams</h3>
-            <p class="expert-title">Singer, Rapper & Producer</p>
+            <h3 class="expert-name">Lauren Conrad</h3>
+            <p class="expert-title">TV Personality & Lifestyle Entrepreneur</p>
             <p class="expert-handle" aria-hidden="true"></p>
-            <p class="expert-quote">"A plant-centered approach has positively shaped how I think about health."</p>
+            <p class="expert-quote">"I find that I feel best when I'm eating fewer ingredients and as clean as possible."</p>
           </article>
           <article class="expert-card">
             <div class="expert-photo">
-              <img src="assets/images/celebrity-2.png" alt="Meghan Markle" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
+              <img src="assets/images/alison-roman.png" alt="Alison Roman" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
               <div class="expert-photo-placeholder">Add photo</div>
             </div>
-            <h3 class="expert-name">Meghan Markle</h3>
-            <p class="expert-title">Duchess of Sussex</p>
+            <h3 class="expert-name">Alison Roman</h3>
+            <p class="expert-title">Chef & Cookbook Author</p>
             <p class="expert-handle" aria-hidden="true"></p>
-            <p class="expert-quote">"I see food as medicine — and natural ingredients can support us through real life moments."</p>
+            <p class="expert-quote">"I grew up on vegetables… it's always been a huge part of the way we eat."</p>
           </article>
           <article class="expert-card">
             <div class="expert-photo">
-              <img src="assets/images/celebrity-3.png" alt="Miranda Kerr" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
+              <img src="assets/images/joanna-gaines.png" alt="Joanna Gaines" width="280" height="280" loading="lazy" decoding="async" onerror="this.parentElement.classList.add('img-failed')">
               <div class="expert-photo-placeholder">Add photo</div>
             </div>
-            <h3 class="expert-name">Miranda Kerr</h3>
-            <p class="expert-title">Victoria's Secret Angel & Founder, KORA Organics</p>
+            <h3 class="expert-name">Joanna Gaines</h3>
+            <p class="expert-title">HGTV Host & Co-Founder, Magnolia</p>
             <p class="expert-handle" aria-hidden="true"></p>
-            <p class="expert-quote">"Natural ingredients have supported my health since I was young."</p>
+            <p class="expert-quote">"I've heard it said that nature is the springboard to the sacred… Every season we reap far more than we sow."</p>
           </article>
         </div>
       </div>
@@ -2466,10 +2561,10 @@
           <h2 class="text-h2">About the Author</h2>
         </div>
         <div class="author-image">
-          <img src="assets/images/author.png" alt="Author" width="443" height="521" loading="lazy" decoding="async">
+          <img src="assets/images/marie-clark-author.png" alt="Marie Clark, Author" width="280" height="329" loading="lazy" decoding="async">
         </div>
         <p class="text-body" style="text-align: center;">
-          My journey to health and wellness began with my own struggles. Before becoming a recognised Herbalist and expert in natural health, I spent 12 years as an international fashion model. My deep understanding of the plant world, combined with my Mediterranean ancestry rooted in spagyric Greek medicine, enabled me to create a herbal range that nurtures physical health while also supporting emotional well-being
+          Marie Clark, PhD, offers a distinctive approach to natural health, shaped by her own personal challenges. Now a recognised Herbalist and trusted expert in holistic wellbeing, she draws on a deep understanding of the plant world and her Mediterranean ancestry-rooted in spagyric Greek medicine. Marie has created a herbal range designed to support physical vitality while also nurturing emotional wellbeing.
         </p>
       </div>
     </section>
@@ -2485,11 +2580,10 @@
           <div class="faq-item">
             <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-1" id="faq-q1">Is this book beginner-friendly?</button>
             <div class="faq-answer" id="faq-1" role="region" aria-labelledby="faq-q1">
-              <div class="faq-answer-inner">Yes. All instructions are clear and step-by-step.</div>
+              <div class="faq-answer-inner">Yes. All instructions are clear and step-by-step. No basic knowledge required.</div>
             </div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-2" id="faq-q2">Does it include alcohol-free options?</button>
             <div class="faq-answer" id="faq-2" role="region" aria-labelledby="faq-q2">
               <div class="faq-answer-inner">Yes. Many recipes include alcohol-free alternatives.</div>
             </div>
@@ -2501,27 +2595,15 @@
             </div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-4" id="faq-q4">Are safety notes included?</button>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-4" id="faq-q4">Is this dermatologically approved?</button>
             <div class="faq-answer" id="faq-4" role="region" aria-labelledby="faq-q4">
-              <div class="faq-answer-inner">Yes. Safety considerations are included throughout.</div>
+              <div class="faq-answer-inner">Skin types can vary, so cautions and safety considerations are included throughout.</div>
             </div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-5" id="faq-q5">Is this focused on North American herbs?</button>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-5" id="faq-q5">Are the ingredients easy to find?</button>
             <div class="faq-answer" id="faq-5" role="region" aria-labelledby="faq-q5">
-              <div class="faq-answer-inner">Primarily yes, with some widely available international plants.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-6" id="faq-q6">What format is the book?</button>
-            <div class="faq-answer" id="faq-6" role="region" aria-labelledby="faq-q6">
-              <div class="faq-answer-inner">Hardcover, full-color print.</div>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-7" id="faq-q7">How long does shipping take?</button>
-            <div class="faq-answer" id="faq-7" role="region" aria-labelledby="faq-q7">
-              <div class="faq-answer-inner">Orders ship within 2–5 business days.</div>
+              <div class="faq-answer-inner">Most ingredients are readily available in local shops in the USA.</div>
             </div>
           </div>
         </div>
@@ -2684,7 +2766,7 @@
     // Cart (MVP: in-memory, no checkout — proceed shows out-of-stock modal)
     (function() {
       var cart = [];
-      var MAIN_PRODUCT = { id: 'book', name: 'The Modern Home Apothecary', price: 79, img: 'heroproductimages/hf_20260218_070652_025e38b0-0fee-4864-87b5-a3ee0d76ca45.png' };
+      var MAIN_PRODUCT = { id: 'book', name: 'The Modern Home Apothecary', price: 79, img: 'heroproductimages/COVER_01.png' };
       var drawer = document.getElementById('cart-drawer');
       var backdrop = document.getElementById('cart-backdrop');
       var trigger = document.getElementById('cart-trigger');
@@ -2812,6 +2894,26 @@
       modal && modal.addEventListener('click', function(e) {
         if (e.target === modal) { modal.classList.remove('is-visible'); modal.setAttribute('aria-hidden', 'true'); }
       });
+      var waitlistForm = document.getElementById('waitlist-form');
+      var waitlistEmail = document.getElementById('waitlist-email');
+      var waitlistSubmit = document.getElementById('waitlist-submit');
+      if (waitlistForm) {
+        waitlistForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var email = waitlistEmail && waitlistEmail.value ? waitlistEmail.value.trim() : '';
+          if (!email) {
+            if (waitlistEmail) { waitlistEmail.focus(); waitlistEmail.setAttribute('aria-invalid', 'true'); }
+            return;
+          }
+          if (waitlistEmail) waitlistEmail.setAttribute('aria-invalid', 'false');
+          if (waitlistSubmit) { waitlistSubmit.disabled = true; waitlistSubmit.textContent = 'Joining…'; }
+          setTimeout(function() {
+            if (waitlistSubmit) { waitlistSubmit.disabled = false; waitlistSubmit.textContent = 'Join waitlist'; }
+            if (modal) { modal.classList.remove('is-visible'); modal.setAttribute('aria-hidden', 'true'); }
+            if (waitlistEmail) waitlistEmail.value = '';
+          }, 800);
+        });
+      }
       window.addToCart = addToCart;
       window.MAIN_PRODUCT = MAIN_PRODUCT;
       window.updateAddonVisibility = updateAddonVisibility;

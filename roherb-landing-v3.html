@@ -6,8 +6,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="theme-color" content="#1d5c45">
-  <title>RoHerb — Botanical Blending for Home | Recipe Book & Herbal Drinks</title>
-  <meta name="description" content="The RoHerb Recipe Book: botanical recipes for home—infusions, tonics, and herbal drinks you can blend yourself. Clear, practical, no bar required.">
+  <title>The Modern Home Apothecary | Verdant Press — 250 Plants & Botanical Recipes</title>
+  <meta name="description" content="The Modern Home Apothecary: 250 herbal recipes and 250 plant profiles. Teas, tinctures, salves, syrups, and alcohol-free preparations. A practical reference for everyday use. Ships in 2–5 days. 60-day money-back guarantee.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -212,42 +212,61 @@
     }
     .nav-toggle:hover, .nav-toggle:focus-visible { color: var(--accent); }
     .nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    /* Mobile menu overlay: outside header so it always stacks on top */
     .nav-backdrop {
       display: none;
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,.4);
-      z-index: 198;
+      z-index: 99998;
       opacity: 0;
       transition: opacity var(--transition-slow);
+      pointer-events: none;
     }
-    .nav-backdrop.is-visible { display: block; opacity: 1; }
+    .nav-backdrop.is-visible { display: block; opacity: 1; pointer-events: auto; }
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: min(300px, 88vw);
+      z-index: 99999;
+      pointer-events: none;
+    }
+    .nav-overlay.is-open { display: block; pointer-events: auto; }
+    .nav-overlay nav {
+      height: 100%;
+      background: var(--bg-section);
+      box-shadow: -8px 0 32px rgba(0,0,0,.12);
+      padding: var(--space-16) var(--space-6) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      transform: translateX(100%);
+      transition: transform var(--transition-slow);
+    }
+    .nav-overlay.is-open nav { transform: translateX(0); }
+    .nav-overlay a {
+      padding: var(--space-4) 0;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .nav-overlay a:hover, .nav-overlay a:focus { color: var(--accent); }
+    .nav-overlay .nav-cta { margin-left: 0; margin-top: var(--space-4); text-align: center; color: var(--accent); border: 1px solid var(--accent); border-radius: var(--radius); justify-content: center; }
 
     @media (max-width: 767px) {
       .nav-toggle { display: block; }
-      nav {
-        position: fixed;
-        top: 0; right: 0; bottom: 0;
-        width: min(300px, 88vw);
-        background: var(--bg-section);
-        flex-direction: column;
-        align-items: stretch;
-        padding: var(--space-16) var(--space-6) var(--space-6);
-        box-shadow: -8px 0 32px rgba(0,0,0,.12);
-        z-index: 199;
-        transform: translateX(100%);
-        transition: transform var(--transition-slow);
-        gap: 0;
-      }
-      nav.is-open { transform: translateX(0); }
-      nav a {
-        padding: var(--space-4) 0;
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid var(--border-subtle);
-      }
-      .nav-cta { margin-left: 0; margin-top: var(--space-4); text-align: center; }
+      header #main-nav { display: none; }
+    }
+    @media (min-width: 768px) {
+      .nav-overlay { display: none !important; }
+      .nav-backdrop { display: none !important; }
     }
 
     /* ─── Buttons & CTAs ─── */
@@ -348,6 +367,251 @@
       .hero .cta-row { flex-direction: column; align-items: stretch; }
       .hero .cta-row .cta-primary,
       .hero .cta-row .cta-secondary { width: 100%; justify-content: center; }
+    }
+
+    /* ─── Trust strip ─── */
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3) var(--space-8);
+      padding: var(--space-5) var(--space-4);
+      background: var(--bg-section);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .trust-strip-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .trust-strip-item::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ─── What's Included (redesigned) ─── */
+    #included .section-heading { text-align: center; margin-bottom: var(--space-10); }
+    #included .included-sub { font-size: 1.125rem; color: var(--text-muted); margin-top: var(--space-2); }
+    .included-cards {
+      display: grid;
+      gap: var(--space-6);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .included-cards { grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+    }
+    .included-card {
+      background: var(--bg-section);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .included-card:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .included-card .card-head {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+    .included-card .card-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .included-card .card-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .included-card .recipe-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-5);
+    }
+    .included-card .recipe-tag {
+      font-size: 0.8125rem;
+      padding: var(--space-1) var(--space-3);
+      background: var(--accent-muted);
+      color: var(--accent-dark);
+      border-radius: 999px;
+      font-weight: 500;
+    }
+    .included-card .card-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin: var(--space-4) 0;
+    }
+    .included-card .card-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .included-card .card-checklist li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-2);
+    }
+    .included-card .card-checklist li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .included-card .card-note {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      margin-top: var(--space-4);
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    /* ─── Visual Proof carousel (scroll style like Experts) ─── */
+    .visual-proof-carousel .visual-slide {
+      flex: 0 0 min(280px, 85vw);
+      scroll-snap-align: start;
+      aspect-ratio: 3/4;
+      background: var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-subtle);
+      font-size: 0.9375rem;
+      text-align: center;
+      padding: var(--space-4);
+      box-sizing: border-box;
+      position: relative;
+    }
+    .visual-proof-carousel .visual-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .visual-proof-carousel .visual-slide .slide-fallback {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+    }
+    .visual-proof-carousel .visual-slide.img-failed img { display: none; }
+    .visual-proof-carousel .visual-slide.img-failed .slide-fallback { display: flex; }
+    .who-for-grid {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .who-for-item {
+      padding: var(--space-5);
+      background: var(--bg-section);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+    }
+
+    /* ─── Industry Leaders & Experts ─── */
+    .experts-cards {
+      display: flex;
+      gap: var(--space-6);
+      overflow-x: auto;
+      padding-bottom: var(--space-4);
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+    .experts-cards::-webkit-scrollbar { height: 6px; }
+    .experts-cards::-webkit-scrollbar-track { background: var(--border-subtle); border-radius: 3px; }
+    .experts-cards::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    .expert-card {
+      flex: 0 0 min(280px, 85vw);
+      background: var(--bg-section);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      scroll-snap-align: start;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .expert-card:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .expert-card .expert-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: var(--space-4);
+      background: var(--border-subtle);
+      position: relative;
+    }
+    .expert-card .expert-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .expert-card .expert-photo-placeholder {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-subtle);
+      font-size: 0.75rem;
+    }
+    .expert-card .expert-photo.img-failed img { display: none; }
+    .expert-card .expert-photo.img-failed .expert-photo-placeholder { display: flex; }
+    .expert-card .expert-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin: 0 0 var(--space-1);
+    }
+    .expert-card .expert-title {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin: 0 0 var(--space-2);
+    }
+    .expert-card .expert-handle {
+      font-size: 0.8125rem;
+      color: var(--text-subtle);
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .expert-card .expert-quote {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--text);
+      margin: 0 0 var(--space-3);
+    }
+    .expert-card .expert-product {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      margin-bottom: var(--space-2);
+    }
+    .expert-card .expert-stars {
+      font-size: 0.875rem;
+      color: var(--text);
+      letter-spacing: 0.1em;
     }
 
     /* ─── Section layout ─── */
@@ -660,14 +924,23 @@
       color: var(--accent);
     }
 
-    /* ─── Recipes grid ─── */
-    .recipe-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-5);
+    /* ─── Scroll carousel (Experts-style: horizontal scroll + snap) ─── */
+    .carousel-scroll {
+      display: flex;
+      gap: var(--space-6);
+      overflow-x: auto;
+      padding-bottom: var(--space-4);
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
     }
-    @media (min-width: 480px) {
-      .recipe-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
+    .carousel-scroll::-webkit-scrollbar { height: 6px; }
+    .carousel-scroll::-webkit-scrollbar-track { background: var(--border-subtle); border-radius: 3px; }
+    .carousel-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ─── Recipes carousel ─── */
+    .recipes-carousel .recipe-card {
+      flex: 0 0 min(280px, 85vw);
+      scroll-snap-align: start;
     }
     .recipe-card {
       background: var(--bg-section);
@@ -900,6 +1173,7 @@
       text-align: center;
     }
     .footer-bottom p { margin: 0; color: rgba(255,255,255,.6); font-size: 0.8125rem; }
+    .footer-bottom p:first-child { max-width: 580px; margin-left: auto; margin-right: auto; }
 
     /* ─── Scroll-linked herbal parallax background ─── */
     .bg-herbs {
@@ -943,7 +1217,7 @@
     @media (prefers-reduced-motion: reduce) {
       .bg-herbs-inner { will-change: auto; }
     }
-    header { position: relative; z-index: 10; }
+    header { position: relative; z-index: 1000; }
     main { position: relative; z-index: 1; }
   </style>
 </head>
@@ -1071,70 +1345,95 @@
   </div>
   <header id="header">
     <div class="container header-inner">
-      <a href="#book" class="logo">RoHerb</a>
-      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav" id="nav-toggle">☰</button>
-      <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+      <a href="#book" class="logo">Verdant Press</a>
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-overlay" id="nav-toggle">☰</button>
       <nav id="main-nav" role="navigation" aria-label="Main">
-        <a href="#book">The RoHerb Book</a>
-        <a href="#story">Story</a>
-        <a href="#recipes">Recipes</a>
-        <a href="#addons" class="nav-cta">Pre-order</a>
+        <a href="#book">The Book</a>
+        <a href="#intro">About</a>
+        <a href="#included">What's Included</a>
+        <a href="#addons" class="nav-cta">Get the Book</a>
       </nav>
     </div>
   </header>
+  <!-- Mobile menu overlay (outside header so it always stacks on top) -->
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+    <nav id="main-nav-mobile" role="navigation" aria-label="Main">
+      <a href="#book">The Book</a>
+      <a href="#intro">About</a>
+      <a href="#included">What's Included</a>
+      <a href="#addons" class="nav-cta">Get the Book</a>
+    </nav>
+  </div>
 
   <main>
     <!-- Hero -->
     <section class="hero" id="book">
       <div class="container">
-        <h1 class="text-display">The RoHerb <span class="highlight">Recipe Book</span></h1>
-        <p class="tagline">Botanical blending for <span class="highlight">home</span>: infusions, tonics, and herbal drinks you can make yourself</p>
+        <h1 class="text-display">The Modern Home <span class="highlight">Apothecary</span></h1>
+        <p class="tagline">The Modern Apothecary — 250 plants and botanical recipes for everyday use</p>
         <p class="book-blurb">
-          A clear, practical collection of herbal recipes for your kitchen. From <span class="highlight">simple infusions</span> to more involved tonics and drinks. Each recipe is written for home use, with ingredients, steps, and tips. No bar or professional kit required.
+          A beautifully illustrated, practical reference for making teas, tinctures, syrups, salves, infused oils, and alcohol-free preparations — designed so you can find what you need in under a minute.
         </p>
         <div class="cta-row">
-          <a href="#addons" class="cta-primary">Pre-order the Book</a>
+          <a href="#addons" class="cta-primary">Get the Book</a>
           <a href="#newsletter" class="cta-secondary">Join the newsletter</a>
         </div>
+        <p class="text-caption" style="margin-top: var(--space-4);">Hardcover • Full-Color • Ships in 2–5 Business Days • 60-Day Money-Back Guarantee</p>
       </div>
     </section>
 
-    <!-- Story -->
-    <section class="section section--alt" id="story">
+    <!-- Trust strip -->
+    <div class="trust-strip">
+      <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3) var(--space-8); max-width: 900px;">
+        <span class="trust-strip-item">Clear, step-by-step instructions</span>
+        <span class="trust-strip-item">Organized by purpose & preparation</span>
+        <span class="trust-strip-item">Alcohol-free alternatives included</span>
+        <span class="trust-strip-item">Safety notes & general use guidance</span>
+        <span class="trust-strip-item">North American herb focus</span>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <section class="section section--alt" id="intro">
       <div class="container">
         <div class="story">
           <div class="content">
-            <span class="text-eyebrow">Origin</span>
-            <h2 class="text-h1">The Story Behind the <span class="highlight">RoHerb</span> Book</h2>
+            <span class="text-eyebrow">The approach</span>
+            <h2 class="text-h1">A practical herbal reference you'll <span class="highlight">actually use</span>.</h2>
             <p>
-              This book started from a simple idea: the best botanical drinks should not depend on a bar or a pro setup. We wanted to give you the same <span class="highlight">clarity and care at home</span>. Clear recipes, no guesswork, so you can build a real practice in your own kitchen.
+              Most herbal books are inspiring but difficult to navigate when you need something specific.
+              <em>The Modern Home Apothecary</em> was created as a working reference — not a coffee-table book.
             </p>
             <p>
-              Every recipe has been tested for home use. Whether you are new to herbs or already making your own infusions, the book is designed to be your go-to: organised, easy to follow, and focused entirely on what you can do at home.
+              Every recipe and herb profile is organized for clarity, speed, and real-world use.
             </p>
           </div>
           <div class="media">
             <div class="story-image">
-            <img src="assets/images/story.jpg" alt="RoHerb recipe book open to an illustrated recipe spread" width="1792" height="2400" loading="eager" decoding="async">
-          </div>
+              <img src="assets/images/story.jpg" alt="The Modern Home Apothecary open to an illustrated recipe spread" width="1792" height="2400" loading="eager" decoding="async">
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA block: Develop your practice -->
-    <section class="section section--muted">
+    <!-- How the book is organized -->
+    <section class="section section--muted" id="organized">
       <div class="container container--narrow">
-        <div class="cta-block">
-          <h2 class="text-h2">Develop your <span class="highlight">home blending practice</span></h2>
-          <p class="text-body">
-            Bring botanical drinks into your kitchen. Get the book, join the newsletter, and start blending with confidence.
-          </p>
-          <div class="cta-row">
-            <a href="#addons" class="cta-primary">Pre-order the Book</a>
-            <a href="#newsletter" class="cta-secondary">Subscribe</a>
-          </div>
+        <div class="section-heading">
+          <span class="text-eyebrow">Structure</span>
+          <h2 class="text-h2">Designed to be used, not guessed through.</h2>
         </div>
+        <p class="text-body" style="margin-bottom: var(--space-6);">Inside the book you'll find:</p>
+        <ul class="text-body" style="margin: 0 0 var(--space-6); padding-left: 1.25rem; line-height: 1.8;">
+          <li>A clear index by purpose (daily routines, sleep, digestion, skin care, seasonal comfort)</li>
+          <li>Preparation-based sections (teas, tinctures, salves, syrups, oils, baths)</li>
+          <li>Time & complexity tags (quick, overnight, beginner-friendly)</li>
+          <li>Alcohol-free alternatives where applicable</li>
+          <li>Safety notes and general use considerations throughout</li>
+        </ul>
+        <p class="text-body">Everything is structured so you can go from question to preparation quickly and confidently.</p>
       </div>
     </section>
 
@@ -1169,9 +1468,9 @@
         <div class="newsletter">
           <div class="newsletter-content">
             <span class="text-eyebrow">Stay in touch</span>
-            <h2 class="text-h2">Discover the world of RoHerb</h2>
+            <h2 class="text-h2">Discover the world of herbal homecraft</h2>
             <p class="text-body">
-              Join our newsletter to explore, learn, and get inspired by plants, herbs, flavours, and simple rituals you can do at home.
+              Join our newsletter for practical botanical tips, preparation guides, and inspiration for your home apothecary.
             </p>
             <form class="newsletter-form" action="#" method="post" aria-label="Newsletter signup">
               <input type="email" name="email" inputmode="email" autocomplete="email" placeholder="Your email" aria-label="Email address" required>
@@ -1185,38 +1484,79 @@
       </div>
     </section>
 
-    <!-- Pillars: How we support you -->
-    <section class="section section--muted" id="pillars">
+    <!-- What's Included -->
+    <section class="section section--muted" id="included">
       <div class="container">
         <div class="section-heading">
-          <span class="text-eyebrow">Four pillars</span>
-          <h2 class="text-h2">How We Support Your Blending Journey</h2>
-          <p class="sub text-small">
-            Whether you are starting out or deepening your practice, <span class="highlight">RoHerb meets you where you are</span>.
-          </p>
+          <span class="text-eyebrow">What's inside</span>
+          <h2 class="text-h2">500+ pages of practical reference</h2>
+          <p class="included-sub">250 recipes + 250 plant profiles, organized for everyday use.</p>
         </div>
-        <div class="pillars-grid">
-          <article class="pillar-card">
-            <div class="pillar-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20c0-2 2-4 4-4s4 2 4 4"/><path d="M12 16V6"/><path d="M6 20V10a6 6 0 0 1 12 0v10"/></svg></div>
-            <h3 class="text-h3">Blending</h3>
-            <p>Clear recipes for infusions, tonics, and drinks. Concepts, steps, and tips so you can blend with confidence at home.</p>
+        <div class="included-cards">
+          <article class="included-card">
+            <div class="card-head">
+              <span class="card-number">250</span>
+              <h3 class="card-title">Herbal Recipes</h3>
+            </div>
+            <div class="recipe-tags">
+              <span class="recipe-tag">Teas & infusions</span>
+              <span class="recipe-tag">Tinctures & glycerites</span>
+              <span class="recipe-tag">Syrups & oxymels</span>
+              <span class="recipe-tag">Salves & balms</span>
+              <span class="recipe-tag">Infused oils</span>
+              <span class="recipe-tag">Compresses</span>
+              <span class="recipe-tag">Bitters & digestive blends</span>
+              <span class="recipe-tag">Baths & steams</span>
+            </div>
+            <div class="card-divider"></div>
+            <p class="text-small" style="margin: 0 0 var(--space-2); font-weight: 500;">Every recipe includes:</p>
+            <ul class="card-checklist">
+              <li>Ingredients & exact measurements</li>
+              <li>Step-by-step instructions</li>
+              <li>Storage & shelf life</li>
+              <li>General use notes</li>
+            </ul>
           </article>
-          <article class="pillar-card">
-            <div class="pillar-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-            <h3 class="text-h3">Education</h3>
-            <p>Learn the basics of herbs, extraction, and flavour pairing. Build your knowledge through the book and our guides.</p>
-          </article>
-          <article class="pillar-card">
-            <div class="pillar-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 22h6"/><path d="M12 22V6"/><path d="M12 2a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2z"/></svg></div>
-            <h3 class="text-h3">Ritual</h3>
-            <p>Turn blending into a daily practice. From morning tonics to evening infusions. Recipes and rituals for every moment.</p>
-          </article>
-          <article class="pillar-card">
-            <div class="pillar-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <h3 class="text-h3">Connection</h3>
-            <p>Connect with plants, place, and people. Share what you make. The book is a bridge between nature and your kitchen.</p>
+          <article class="included-card">
+            <div class="card-head">
+              <span class="card-number">250</span>
+              <h3 class="card-title">Plant Profiles</h3>
+            </div>
+            <ul class="card-checklist">
+              <li>Common and Latin name</li>
+              <li>Plant parts used</li>
+              <li>Traditional background</li>
+              <li>Recommended preparation methods</li>
+              <li>Safety considerations & cautions</li>
+            </ul>
+            <p class="card-note">Written for beginners and useful as a long-term reference.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- Who This Book Is For -->
+    <section class="section section--muted" id="who-for">
+      <div class="container">
+        <div class="section-heading">
+          <span class="text-eyebrow">Audience</span>
+          <h2 class="text-h2">Who this book is for</h2>
+        </div>
+        <div class="who-for-grid">
+          <div class="who-for-item">
+            <p class="text-body" style="margin: 0;">Anyone building a practical home reference library</p>
+          </div>
+          <div class="who-for-item">
+            <p class="text-body" style="margin: 0;">Beginners looking for clear, structured guidance</p>
+          </div>
+          <div class="who-for-item">
+            <p class="text-body" style="margin: 0;">Readers interested in traditional botanical knowledge</p>
+          </div>
+          <div class="who-for-item">
+            <p class="text-body" style="margin: 0;">People who want a book they'll return to again and again</p>
+          </div>
+        </div>
+        <p class="text-body" style="text-align: center; margin-top: var(--space-6); margin-bottom: 0;">No prior herbal experience required.</p>
       </div>
     </section>
 
@@ -1227,7 +1567,7 @@
           <span class="text-eyebrow">Why nature</span>
           <h2 class="text-h2">What if we have been looking in the <span class="highlight">wrong</span> place?</h2>
         </div>
-        <div class="quote-slider">
+        <div class="quote-slider" id="quote-slider">
           <div class="quote-slide is-active">
             <blockquote>“The doctor of the future will give no medicine, but will interest his patients in the care of the human frame, in diet, and in the cause and prevention of disease.”</blockquote>
             <cite>Thomas Edison</cite>
@@ -1241,12 +1581,12 @@
             <cite>Hippocrates</cite>
           </div>
           <div class="quote-slide">
-            <blockquote>“Nature itself is the best physician.”</blockquote>
-            <cite>Traditional</cite>
+            <blockquote>“The art of healing comes from nature, not from the physician.”</blockquote>
+            <cite>Paracelsus</cite>
           </div>
           <div class="quote-slide">
-            <blockquote>“A medical system that profits from sickness has no interest in keeping you well. Nature and plants have no such conflict.”</blockquote>
-            <cite>Paraphrase of a common critique</cite>
+            <blockquote>“It is health that is real wealth and not pieces of gold and silver.”</blockquote>
+            <cite>Mahatma Gandhi</cite>
           </div>
         </div>
         <div class="quote-controls" aria-label="Quote slider controls">
@@ -1260,10 +1600,10 @@
     <section class="section section--alt" id="recipes">
       <div class="container">
         <div class="section-heading">
-          <h2 class="text-h2">A taste of <span class="highlight">what is inside</span></h2>
-          <p class="sub text-small">Three recipes from the book.</p>
+          <h2 class="text-h2">A taste of <span class="highlight">what's inside</span></h2>
+          <p class="sub text-small">Sample recipes from the book.</p>
         </div>
-        <div class="recipe-grid">
+        <div class="carousel-scroll recipes-carousel">
           <a href="#recipes" class="recipe-card" aria-label="View Botanical Spritz recipe">
             <div class="recipe-image">
               <img src="assets/images/recipe-3.jpg" alt="Botanical Spritz" width="560" height="747"  decoding="async">
@@ -1298,55 +1638,84 @@
       </div>
     </section>
 
-    <!-- Projects / Use cases -->
-    <section class="section section--muted">
+    <!-- Industry Leaders & Experts -->
+    <section class="section section--alt experts-section" id="experts">
       <div class="container">
         <div class="section-heading">
-          <span class="text-eyebrow">Where RoHerb fits</span>
-          <h2 class="text-h2">Use the Book Wherever You Blend</h2>
+          <h2 class="text-h2">Recommended by <span class="highlight">Industry Leaders & Experts</span></h2>
         </div>
-        <div class="projects-grid">
-          <a href="#book" class="project-card">
-            <h4>Home kitchen</h4>
-            <span>Personal use, morning rituals</span>
-          </a>
-          <a href="#book" class="project-card">
-            <h4>Home bar</h4>
-            <span>Zero-proof & low-proof drinks</span>
-          </a>
-          <a href="#book" class="project-card">
-            <h4>Workshops</h4>
-            <span>Teaching & group blending</span>
-          </a>
-          <a href="#book" class="project-card">
-            <h4>Gifting</h4>
-            <span>For herb & drink enthusiasts</span>
-          </a>
-          <a href="#book" class="project-card">
-            <h4>Events</h4>
-            <span>Parties, gatherings, tastings</span>
-          </a>
-          <a href="#book" class="project-card">
-            <h4>Wellness</h4>
-            <span>Daily tonics and self-care</span>
-          </a>
+        <div class="carousel-scroll experts-cards">
+          <article class="expert-card">
+            <div class="expert-photo">
+              <img src="assets/images/expert-1.jpg" alt="" onerror="this.parentElement.classList.add('img-failed')">
+              <div class="expert-photo-placeholder">Add photo</div>
+            </div>
+            <h3 class="expert-name">Expert Name</h3>
+            <p class="expert-title">Herbalist & Author</p>
+            <p class="expert-handle">@handle</p>
+            <p class="expert-quote">"Add your influencer's testimonial quote about The Modern Home Apothecary here. A few sentences praising the book's clarity and practical value work well."</p>
+            <p class="expert-product">The Modern Home Apothecary</p>
+            <p class="expert-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          </article>
+          <article class="expert-card">
+            <div class="expert-photo">
+              <img src="assets/images/expert-2.jpg" alt="" onerror="this.parentElement.classList.add('img-failed')">
+              <div class="expert-photo-placeholder">Add photo</div>
+            </div>
+            <h3 class="expert-name">Expert Name</h3>
+            <p class="expert-title">Botanical Educator</p>
+            <p class="expert-handle">@handle</p>
+            <p class="expert-quote">"Add your second influencer's quote here. Keep it authentic and specific to why they recommend the book."</p>
+            <p class="expert-product">The Modern Home Apothecary</p>
+            <p class="expert-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          </article>
+          <article class="expert-card">
+            <div class="expert-photo">
+              <img src="assets/images/expert-3.jpg" alt="" onerror="this.parentElement.classList.add('img-failed')">
+              <div class="expert-photo-placeholder">Add photo</div>
+            </div>
+            <h3 class="expert-name">Expert Name</h3>
+            <p class="expert-title">Wellness Advocate</p>
+            <p class="expert-handle">@handle</p>
+            <p class="expert-quote">"Add your third influencer's testimonial. You can add more cards by duplicating this structure."</p>
+            <p class="expert-product">The Modern Home Apothecary</p>
+            <p class="expert-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Add-ons -->
-    <section class="section section--alt addons" id="addons">
+    <!-- Offer & Guarantee -->
+    <section class="section section--muted addons" id="addons">
       <div class="container">
-        <span class="badge">Coming soon</span>
-        <h2 class="text-h2">RoHerb add-ons</h2>
-        <p>
-          The book is just the start. Soon you will be able to order <strong>herbal materials and ingredient kits</strong>: dried botanicals, small-batch extracts, and everything you need to build your home apothecary without the guesswork.
-        </p>
-        <p>Be the first to know when add-ons go live.</p>
-        <div class="signup-row">
-          <input type="email" inputmode="email" autocomplete="email" placeholder="Your email" aria-label="Email for add-on updates" id="addon-email" class="input-email">
-          <button type="button" class="cta-primary addon-notify">Notify me</button>
+        <div class="cta-block" style="max-width: 560px; margin: 0 auto;">
+          <h2 class="text-h2">Order <em>The Modern Home Apothecary</em></h2>
+          <ul class="text-body" style="text-align: left; margin: 0 0 var(--space-6); padding-left: 1.25rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+            <li>Hardcover, full-color edition</li>
+            <li>500+ pages of organized reference</li>
+            <li>All digital bonuses included</li>
+          </ul>
+          <a href="#" class="cta-primary">Get the Book</a>
+          <p class="text-small" style="margin-top: var(--space-4); margin-bottom: 0;">60-Day Money-Back Guarantee</p>
         </div>
+        <div class="container container--narrow" style="margin-top: var(--space-12); text-align: center;">
+          <h3 class="text-h3" style="margin-bottom: var(--space-3);">Read it. Use it. Decide later.</h3>
+          <p class="text-body">If you're not satisfied, contact us within 60 days for a full refund. No questions asked.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the Publisher -->
+    <section class="section section--alt" id="publisher">
+      <div class="container container--narrow">
+        <div class="section-heading">
+          <span class="text-eyebrow">Publisher</span>
+          <h2 class="text-h2">About Verdant Press</h2>
+        </div>
+        <p class="text-body" style="text-align: center;">
+          Verdant Press creates clear, well-designed reference books focused on traditional knowledge presented responsibly for modern readers.
+          Our work emphasizes usability, structure, and clarity over trends or exaggeration.
+        </p>
       </div>
     </section>
 
@@ -1359,28 +1728,47 @@
         </div>
         <div class="faq-list">
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-1" id="faq-q1">Do I need professional bar equipment?</button>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-1" id="faq-q1">Is this book beginner-friendly?</button>
             <div class="faq-answer" id="faq-1" role="region" aria-labelledby="faq-q1">
-              <div class="faq-answer-inner">No. Every recipe in the book is written for home use. You can make them with standard kitchen equipment: a kettle, a strainer, jars, and basic tools. No professional bar kit required.</div>
+              <div class="faq-answer-inner">Yes. All instructions are clear and step-by-step.</div>
             </div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-2" id="faq-q2">What kind of content is in the book?</button>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-2" id="faq-q2">Does it include alcohol-free options?</button>
             <div class="faq-answer" id="faq-2" role="region" aria-labelledby="faq-q2">
-              <div class="faq-answer-inner">The book includes recipes for infusions, tonics, syrups, and botanical drinks. Each recipe has ingredients, step-by-step instructions, tips for home use, and notes on flavour pairing. There are also short guides on herbs and blending basics.</div>
+              <div class="faq-answer-inner">Yes. Many recipes include alcohol-free alternatives.</div>
             </div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-3" id="faq-q3">Are the recipes alcohol-free?</button>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-3" id="faq-q3">Is this medical advice?</button>
             <div class="faq-answer" id="faq-3" role="region" aria-labelledby="faq-q3">
-              <div class="faq-answer-inner">The book focuses on herbal infusions, tonics, and drinks. Most recipes are zero-proof or low-proof. Some include optional spirits for those who want them. Each recipe is clearly labelled.</div>
+              <div class="faq-answer-inner">No. This book is for educational purposes only.</div>
             </div>
           </div>
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-4" id="faq-q4">Where can I find the ingredients?</button>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-4" id="faq-q4">Are safety notes included?</button>
             <div class="faq-answer" id="faq-4" role="region" aria-labelledby="faq-q4">
-              <div class="faq-answer-inner">Common herbs and botanicals are available at grocery stores, health-food shops, or online. Our upcoming add-ons will include curated ingredient kits matched to the recipes.</div>
+              <div class="faq-answer-inner">Yes. Safety considerations are included throughout.</div>
             </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-5" id="faq-q5">Is this focused on North American herbs?</button>
+            <div class="faq-answer" id="faq-5" role="region" aria-labelledby="faq-q5">
+              <div class="faq-answer-inner">Primarily yes, with some widely available international plants.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-6" id="faq-q6">What format is the book?</button>
+            <div class="faq-answer" id="faq-6" role="region" aria-labelledby="faq-q6">
+              <div class="faq-answer-inner">Hardcover, full-color print.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-7" id="faq-q7">How long does shipping take?</button>
+            <div class="faq-answer" id="faq-7" role="region" aria-labelledby="faq-q7">
+              <div class="faq-answer-inner">Orders ship within 2–5 business days.</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1390,9 +1778,9 @@
       <div class="container container--narrow">
         <div class="final-cta">
           <h2 class="text-h2">Still have questions?</h2>
-          <p class="text-body">We are here to help. Pre-order the book or join the newsletter to stay updated.</p>
+          <p class="text-body">We're here to help. Get the book or join the newsletter to stay updated.</p>
           <div class="cta-row" style="justify-content: center;">
-            <a href="#addons" class="cta-primary">Pre-order the Book</a>
+            <a href="#addons" class="cta-primary">Get the Book</a>
             <a href="#newsletter" class="cta-secondary">Subscribe</a>
           </div>
         </div>
@@ -1403,22 +1791,25 @@
   <footer>
     <div class="container footer-inner">
       <div class="footer-brand">
-        <a href="#book" class="logo">RoHerb</a>
+        <a href="#book" class="logo">Verdant Press</a>
       </div>
       <div class="footer-links">
-        <a href="#book">The RoHerb Book</a>
-        <a href="#story">Story</a>
-        <a href="#recipes">Recipes</a>
-        <a href="#addons">Add-ons</a>
+        <a href="#book">The Book</a>
+        <a href="#intro">About</a>
+        <a href="#included">What's Included</a>
+        <a href="#addons">Get the Book</a>
         <a href="#newsletter">Newsletter</a>
         <a href="#faq">FAQ</a>
       </div>
       <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Refund Policy</a>
         <a href="#">Contact</a>
-        <a href="#">Instagram</a>
       </div>
       <div class="footer-bottom">
-        <p>© RoHerb. Botanical blending for home.</p>
+        <p><strong>For educational purposes only.</strong> This book is not intended to diagnose, treat, cure, or prevent any disease. Always consult a qualified healthcare professional regarding medical concerns.</p>
+        <p style="margin-top: var(--space-4);">© Verdant Press. Practical botanical knowledge for modern living.</p>
       </div>
     </div>
   </footer>
@@ -1453,13 +1844,16 @@
       }
     })();
 
-    // Quote slider
+    // Quote slider (with swipe to change quote)
     (function() {
+      var slider = document.getElementById('quote-slider');
       var slides = document.querySelectorAll('.quote-slide');
       var dotsContainer = document.querySelector('.quote-dots');
       var pauseBtn = document.querySelector('.quote-pause');
       if (!slides.length) return;
       var i = 0, interval = 5000, t = null;
+      var touchStartX = 0;
+      var minSwipe = 50;
       function goTo(idx) {
         slides[i].classList.remove('is-active');
         if (dotsContainer && dotsContainer.children[i]) dotsContainer.children[i].classList.remove('is-active');
@@ -1468,6 +1862,7 @@
         if (dotsContainer && dotsContainer.children[i]) dotsContainer.children[i].classList.add('is-active');
       }
       function next() { goTo(i + 1); }
+      function prev() { goTo(i - 1); }
       function startTimer() {
         if (t) clearInterval(t);
         t = setInterval(next, interval);
@@ -1489,27 +1884,37 @@
         }
       }
       if (pauseBtn) pauseBtn.addEventListener('click', function() { t ? stopTimer() : startTimer(); });
+      if (slider) {
+        slider.addEventListener('touchstart', function(e) {
+          touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        slider.addEventListener('touchend', function(e) {
+          var dx = e.changedTouches[0].clientX - touchStartX;
+          if (dx > minSwipe) { prev(); startTimer(); }
+          else if (dx < -minSwipe) { next(); startTimer(); }
+        }, { passive: true });
+      }
       startTimer();
     })();
 
-    // Mobile nav
+    // Mobile nav (overlay is outside header so it stacks on top)
     (function() {
       var toggle = document.getElementById('nav-toggle');
-      var nav = document.getElementById('main-nav');
+      var overlay = document.getElementById('nav-overlay');
       var backdrop = document.getElementById('nav-backdrop');
       function open() {
-        nav.classList.add('is-open');
-        if (backdrop) backdrop.classList.add('is-visible');
+        if (overlay) { overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden', 'false'); }
+        if (backdrop) { backdrop.classList.add('is-visible'); backdrop.setAttribute('aria-hidden', 'false'); }
         if (toggle) { toggle.setAttribute('aria-expanded', 'true'); toggle.setAttribute('aria-label', 'Close menu'); }
       }
       function close() {
-        nav.classList.remove('is-open');
-        if (backdrop) backdrop.classList.remove('is-visible');
+        if (overlay) { overlay.classList.remove('is-open'); overlay.setAttribute('aria-hidden', 'true'); }
+        if (backdrop) { backdrop.classList.remove('is-visible'); backdrop.setAttribute('aria-hidden', 'true'); }
         if (toggle) { toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open menu'); }
       }
-      if (toggle && nav) toggle.addEventListener('click', function() { nav.classList.contains('is-open') ? close() : open(); });
+      if (toggle) toggle.addEventListener('click', function() { overlay && overlay.classList.contains('is-open') ? close() : open(); });
       if (backdrop) backdrop.addEventListener('click', close);
-      if (nav) nav.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
+      if (overlay) overlay.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
     })();
 
     // FAQ accordion
@@ -1530,17 +1935,6 @@
             }
           });
         }
-      });
-    })();
-
-    // Add-ons notify
-    (function() {
-      var btn = document.querySelector('.addon-notify');
-      var input = document.getElementById('addon-email');
-      if (btn && input) btn.addEventListener('click', function() {
-        var email = (input.value || '').trim();
-        if (!email) { alert('Please enter your email.'); return; }
-        alert("Thanks! We'll notify you when add-ons are available.");
       });
     })();
 
