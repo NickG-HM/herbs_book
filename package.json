@@ -1,0 +1,10 @@
+{
+  "name": "roherb-landing",
+  "private": true,
+  "scripts": {
+    "compress-images": "node scripts/compress-images.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

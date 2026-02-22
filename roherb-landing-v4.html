@@ -14,7 +14,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Preload LCP image (first product slide) for faster first paint -->
-  <link rel="preload" as="image" href="heroproductimages/COVER_01.png">
+  <link rel="preload" as="image" href="heroproductimages/COVER_01.png" fetchpriority="high">
+  <!-- Optimize image loading: lazy below fold, async decoding, explicit dimensions -->
   <style>
     /* ─── Design system: 8px grid, Apple/Nike-level polish ─── */
     :root {
@@ -2161,7 +2162,7 @@
         <h3>Customers also bought</h3>
         <div class="cart-drawer__also-list">
           <div class="cart-drawer__also-item" data-addon-id="addon-herbal-starter-kit">
-            <div class="cart-drawer__also-item-img"><img src="assets/images/herba-starter.jpeg" alt="Herbal Starter Kit" width="120" height="120" loading="lazy" decoding="async"></div>
+            <div class="cart-drawer__also-item-img"><img src="assets/images/herba-starter.jpeg" alt="Herbal Starter Kit" width="120" height="120" loading="lazy" decoding="async" sizes="120px"></div>
             <span class="cart-drawer__also-item-name">Herbal Starter Kit</span>
             <span class="cart-drawer__also-item-price">+$32.00</span>
             <button type="button" class="cart-addon-btn js-cart-addon" data-product="Herbal Starter Kit" data-price="32" data-img="assets/images/herba-starter.jpeg" aria-label="Add Herbal Starter Kit to cart">
@@ -2226,11 +2227,11 @@
         <div class="product-gallery">
           <div class="product-gallery__main">
             <div class="product-gallery__track" id="product-gallery-track">
-              <div class="product-gallery__slide"><img src="heroproductimages/COVER_01.png" alt="The Modern Home Apothecary — book cover" width="600" height="800" loading="eager" decoding="async" fetchpriority="high"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070619_13260c38-9444-4360-a708-d3b4f836a6c0.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045312_e273ec57-da6d-42ab-a3c4-3678b363dc5b.jpeg" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045552_49899ad8-b048-43fb-9fe8-7e804381fe06.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
-              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045611_cbdefcb1-6408-4ab4-bfff-7911ade5c03f.jpeg" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/COVER_01.png" alt="The Modern Home Apothecary — book cover" width="600" height="800" loading="eager" decoding="async" fetchpriority="high" sizes="(max-width: 640px) 100vw, 600px"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260218_070619_13260c38-9444-4360-a708-d3b4f836a6c0.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 600px"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045312_e273ec57-da6d-42ab-a3c4-3678b363dc5b.jpeg" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 600px"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045552_49899ad8-b048-43fb-9fe8-7e804381fe06.png" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 600px"></div>
+              <div class="product-gallery__slide"><img src="heroproductimages/hf_20260222_045611_cbdefcb1-6408-4ab4-bfff-7911ade5c03f.jpeg" alt="Recipe example" width="600" height="800" loading="lazy" decoding="async" sizes="(max-width: 640px) 100vw, 600px"></div>
             </div>
             <div class="product-gallery__arrows">
               <button type="button" class="product-gallery__arrow" id="product-gallery-prev" aria-label="Previous image">←</button>
@@ -2324,7 +2325,7 @@
         <div class="addons-products__list">
           <div class="addons-products__item">
             <div class="addons-products__item-img">
-              <img src="assets/images/herba-starter.jpeg" alt="Herbal Starter" width="377" height="126" loading="lazy" decoding="async">
+              <img src="assets/images/herba-starter.jpeg" alt="Herbal Starter" width="377" height="126" loading="lazy" decoding="async" sizes="(max-width: 480px) 100vw, 377px">
             </div>
             <p class="addons-products__item-desc">A premium apothecary essentials set: 17 curated herbs, spices, roots, and salts in elegant matching jars made to brew, season, and display beautifully.</p>
             <form class="js-addon-form" data-product="Herbal Starter Kit" data-price="32">
@@ -2440,7 +2441,7 @@
     <!-- Empty image section -->
     <section class="section section--muted" id="image-section" aria-label="Image">
       <div class="container">
-        <img src="hf_20260218_062913_4bc7d5e0-40de-4b00-8916-317705909425.png" alt="Botanical reference: Premenstrual Syndrome and Anxiety herbal remedies" class="image-section-placeholder" width="1200" height="789" loading="lazy" decoding="async">
+        <img src="hf_20260218_062913_4bc7d5e0-40de-4b00-8916-317705909425.png" alt="Botanical reference: Premenstrual Syndrome and Anxiety herbal remedies" class="image-section-placeholder" width="1200" height="789" loading="lazy" decoding="async" sizes="(max-width: 1024px) 100vw, 1200px">
       </div>
     </section>
 
@@ -2947,6 +2948,7 @@
       });
       form.addEventListener('submit', function(e) {
         e.preventDefault();
+        if (e.target !== form || !form.classList.contains('js-product-form')) return;
         if (addBtn && addBtn.classList.contains('is-loading')) return;
         if (addBtn) { addBtn.classList.add('is-loading'); addBtn.disabled = true; }
         var qty = parseInt(input.value, 10) || 1;
@@ -3008,10 +3010,12 @@
       updateUI(0);
     })();
 
-    // Add-on forms (Customers also bought)
+    // Add-on forms (Customers also bought) — only add the addon, never the hero product
     document.querySelectorAll('.js-addon-form').forEach(function(form) {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
+        e.stopPropagation();
+        if (e.target !== form && !form.contains(e.target)) return;
         var btn = form.querySelector('.addon-add-btn');
         if (btn && btn.classList.contains('is-loading')) return;
         if (btn) { btn.classList.add('is-loading'); btn.disabled = true; }
