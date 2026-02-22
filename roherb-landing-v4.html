@@ -3010,12 +3010,10 @@
       updateUI(0);
     })();
 
-    // Add-on forms (Customers also bought) — only add the addon, never the hero product
+    // Add-on form: one "Add to cart" in addons section — adds BOTH the add-on AND 1 book
     document.querySelectorAll('.js-addon-form').forEach(function(form) {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
-        e.stopPropagation();
-        if (e.target !== form && !form.contains(e.target)) return;
         var btn = form.querySelector('.addon-add-btn');
         if (btn && btn.classList.contains('is-loading')) return;
         if (btn) { btn.classList.add('is-loading'); btn.disabled = true; }
@@ -3028,6 +3026,9 @@
           if (btn) { btn.classList.remove('is-loading'); btn.disabled = false; }
           if (window.addToCart) {
             window.addToCart({ id: 'addon-' + product.replace(/\s+/g, '-').toLowerCase(), name: product, price: price, img: img, isAddon: true }, 1);
+            if (window.MAIN_PRODUCT) {
+              window.addToCart({ id: 'book', name: window.MAIN_PRODUCT.name, price: window.MAIN_PRODUCT.price, img: window.MAIN_PRODUCT.img }, 1);
+            }
           }
         }, 400);
       });
