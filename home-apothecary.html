@@ -795,6 +795,17 @@
       gap: var(--space-4);
       grid-template-columns: 1fr;
     }
+    @media (max-width: 899px) {
+      .product-section .container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      /* Keep text controls aligned while gallery stays edge-to-edge. */
+      .product-block {
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
+      }
+    }
     @media (min-width: 900px) {
       .product-section .container {
         grid-template-columns: 1fr 1fr;
@@ -2102,6 +2113,15 @@
       }
     }
     @media (max-width: 599px) {
+      .addons-products .container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .addons-products__heading,
+      .addons-products__item-desc {
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
+      }
       .addons-products__list {
         grid-template-columns: 1fr;
         gap: var(--space-8);
@@ -2512,20 +2532,20 @@
       <div class="marquee" aria-label="Featured in">
         <div class="marquee-track">
           <div class="marquee-content">
-            <img class="marquee-logo" src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="lazy" decoding="async">
-            <img class="marquee-logo" src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="lazy" decoding="async">
-            <img class="marquee-logo" src="assets/logos/bloomberg.svg" alt="Bloomberg" width="120" height="48" loading="lazy" decoding="async">
-            <img class="marquee-logo" src="assets/logos/fortune.svg" alt="Fortune" width="120" height="48" loading="lazy" decoding="async">
-            <img class="marquee-logo" src="assets/logos/fast-company.svg" alt="Fast Company" width="120" height="48" loading="lazy" decoding="async">
-            <img class="marquee-logo" src="assets/logos/wsj.svg" alt="Wall Street Journal" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="eager" decoding="async">
+            <img class="marquee-logo" src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="eager" decoding="async">
+            <img class="marquee-logo" src="assets/logos/bloomberg.svg" alt="Bloomberg" width="120" height="48" loading="eager" decoding="async">
+            <img class="marquee-logo" src="assets/logos/fortune.svg" alt="Fortune" width="120" height="48" loading="eager" decoding="async">
+            <img class="marquee-logo" src="assets/logos/fast-company.svg" alt="Fast Company" width="120" height="48" loading="eager" decoding="async">
+            <img class="marquee-logo" src="assets/logos/wsj.svg" alt="Wall Street Journal" width="120" height="48" loading="eager" decoding="async">
           </div>
           <div class="marquee-content" aria-hidden="true">
-            <img class="marquee-logo" src="assets/logos/forbes.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
-            <img class="marquee-logo" src="assets/logos/business-insider.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
-            <img class="marquee-logo" src="assets/logos/bloomberg.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
-            <img class="marquee-logo" src="assets/logos/fortune.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
-            <img class="marquee-logo" src="assets/logos/fast-company.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
-            <img class="marquee-logo" src="assets/logos/wsj.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/forbes.svg" alt="" width="120" height="48" loading="eager" decoding="async">
+            <img class="marquee-logo" src="assets/logos/business-insider.svg" alt="" width="120" height="48" loading="eager" decoding="async">
+            <img class="marquee-logo" src="assets/logos/bloomberg.svg" alt="" width="120" height="48" loading="eager" decoding="async">
+            <img class="marquee-logo" src="assets/logos/fortune.svg" alt="" width="120" height="48" loading="eager" decoding="async">
+            <img class="marquee-logo" src="assets/logos/fast-company.svg" alt="" width="120" height="48" loading="eager" decoding="async">
+            <img class="marquee-logo" src="assets/logos/wsj.svg" alt="" width="120" height="48" loading="eager" decoding="async">
           </div>
         </div>
       </div>
