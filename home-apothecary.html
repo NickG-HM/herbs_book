@@ -1658,19 +1658,20 @@
     .marquee-track {
       display: flex;
       align-items: center;
+      flex-wrap: nowrap;
       width: max-content;
-      animation: marquee 40s linear infinite;
-      -webkit-animation: marquee 40s linear infinite;
+      animation: marquee 25s linear infinite;
+      -webkit-animation: marquee 25s linear infinite;
       will-change: transform;
     }
     .marquee:hover .marquee-track { animation-play-state: paused; }
     @keyframes marquee {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      100% { transform: translateX(-33.333%); }
     }
     @-webkit-keyframes marquee {
       0% { -webkit-transform: translateX(0); transform: translateX(0); }
-      100% { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+      100% { -webkit-transform: translateX(-33.333%); transform: translateX(-33.333%); }
     }
     @media (prefers-reduced-motion: reduce) {
       .marquee-track { animation: none; -webkit-animation: none; }
@@ -2425,7 +2426,7 @@
 
     <!-- Hero product video: between add-ons and intro (includes "Nature itself is the best physician") -->
     <section class="hero-video" aria-label="Product video">
-      <video id="hero-video" autoplay muted loop playsinline webkit-playsinline aria-hidden="true" preload="auto" poster="heroproductimages/COVER_01.png" src="video/Hero_Video_1920x1080_HB.mp4">
+      <video id="hero-video" autoplay muted loop playsinline aria-hidden="true" preload="auto" poster="heroproductimages/COVER_01.png" src="video/Hero_Video_1920x1080_HB.mp4" disablePictureInPicture>
         <source src="video/Hero_Video_1920x1080_HB.mp4" type="video/mp4">
       </video>
       <div class="hero-video__overlay" aria-hidden="true">
@@ -2466,6 +2467,12 @@
 
       <div class="marquee" aria-label="Featured in">
         <div class="marquee-track">
+            <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="marquee-item"><img src="assets/logos/fortune.svg" alt="Fortune" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="marquee-item"><img src="assets/logos/fast-company.svg" alt="Fast Company" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
+            <div class="marquee-item"><img src="assets/logos/wsj.svg" alt="Wall Street Journal" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
             <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
             <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
             <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
@@ -2862,7 +2869,7 @@
 
     // Cart (MVP: in-memory, no checkout — proceed shows out-of-stock modal)
     (function() {
-      var WEBHOOK_URL = 'https://nickhm.app.n8n.cloud/webhook-test/8314ed98-cc91-4f6d-9668-c2f71b030e37';
+      var WEBHOOK_URL = 'https://nickhm.app.n8n.cloud/webhook/8314ed98-cc91-4f6d-9668-c2f71b030e37';
       var cart = [];
       var MAIN_PRODUCT = { id: 'book', name: 'The Modern Home Apothecary', price: 79, img: 'heroproductimages/COVER_01.png' };
       var drawer = document.getElementById('cart-drawer');
@@ -3185,24 +3192,36 @@
       alert('Thanks for subscribing! (Connect to your email provider.)');
     });
 
-    // iOS Safari: force hero video to play (autoplay often ignored without user gesture)
+    // iOS Safari: force hero video to play (autoplay requires muted + playsinline)
     (function() {
       var heroVideo = document.getElementById('hero-video');
       if (!heroVideo) return;
-      heroVideo.setAttribute('muted', '');
       heroVideo.muted = true;
+      heroVideo.setAttribute('muted', '');
       heroVideo.setAttribute('playsinline', '');
-      heroVideo.setAttribute('webkit-playsinline', '');
+      heroVideo.playsInline = true;
       function tryPlay() {
+        heroVideo.muted = true;
         var p = heroVideo.play();
         if (p && typeof p.then === 'function') p.catch(function() {});
       }
+      heroVideo.addEventListener('loadedmetadata', tryPlay);
       heroVideo.addEventListener('loadeddata', tryPlay);
       heroVideo.addEventListener('canplay', tryPlay);
+      heroVideo.addEventListener('canplaythrough', tryPlay);
       if (document.readyState === 'complete') tryPlay();
       else window.addEventListener('load', tryPlay);
-      // iOS: one more attempt after a short delay (Safari can delay readiness)
       setTimeout(tryPlay, 300);
+      setTimeout(tryPlay, 800);
+      // iOS: play when video enters viewport (often unblocks autoplay)
+      if (typeof IntersectionObserver !== 'undefined') {
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) tryPlay();
+          });
+        }, { root: null, rootMargin: '0px', threshold: 0.25 });
+        obs.observe(heroVideo);
+      }
     })();
   </script>
 </body>
