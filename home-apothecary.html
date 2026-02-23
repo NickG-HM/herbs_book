@@ -1322,6 +1322,24 @@
     }
 
     /* ─── Industry Leaders & Experts ─── */
+    @media (max-width: 1023px) {
+      #experts .container,
+      #celebrities .container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      #experts .section-heading,
+      #celebrities .section-heading {
+        padding-left: calc(var(--space-4) + env(safe-area-inset-left));
+        padding-right: calc(var(--space-4) + env(safe-area-inset-right));
+      }
+      #experts .experts-cards,
+      #celebrities .experts-cards {
+        padding-left: calc(var(--space-4) + env(safe-area-inset-left));
+        padding-right: calc(var(--space-4) + env(safe-area-inset-right));
+        box-sizing: border-box;
+      }
+    }
     .experts-cards {
       display: flex;
       gap: var(--space-6);
@@ -1398,6 +1416,17 @@
     }
     #author .author-image img {
       border-radius: 0;
+    }
+    #author .container--narrow {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    #author .container--narrow .text-body {
+      text-align: left;
+      max-width: 52ch;
+      margin-left: auto;
+      margin-right: auto;
     }
     #image-section {
       padding-top: 1px;
@@ -1521,10 +1550,16 @@
       }
     }
     @media (max-width: 767px) {
+      #intro .container { padding-left: 0; padding-right: 0; }
+      #intro .story .content {
+        padding-left: calc(var(--space-4) + env(safe-area-inset-left));
+        padding-right: calc(var(--space-4) + env(safe-area-inset-right));
+      }
+      #intro .story .media { width: 100%; }
       #intro .story-image {
-        width: 100vw;
-        margin-left: calc(50% - 50vw);
-        margin-right: calc(50% - 50vw);
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
         border-radius: 0;
       }
     }
@@ -1616,21 +1651,29 @@
       overflow: hidden;
       -webkit-overflow-scrolling: touch;
       width: 100%;
-      padding-left: max(var(--space-4), env(safe-area-inset-left));
-      padding-right: max(var(--space-4), env(safe-area-inset-right));
+      padding-left: 0;
+      padding-right: 0;
       box-sizing: border-box;
     }
     .marquee-track {
       display: flex;
       align-items: center;
       width: max-content;
-      animation: marquee 30s linear infinite;
+      animation: marquee 40s linear infinite;
+      -webkit-animation: marquee 40s linear infinite;
       will-change: transform;
     }
     .marquee:hover .marquee-track { animation-play-state: paused; }
     @keyframes marquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
+    }
+    @-webkit-keyframes marquee {
+      0% { -webkit-transform: translateX(0); transform: translateX(0); }
+      100% { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; -webkit-animation: none; }
     }
     .marquee-item {
       flex-shrink: 0;
@@ -2421,7 +2464,7 @@
     <!-- Trusted by: adjust --trusted-gap in CSS to move heading/marquee up or down -->
     <section class="section section-trusted" id="trusted">
 
-      <div class="marquee">
+      <div class="marquee" aria-label="Featured in">
         <div class="marquee-track">
             <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
             <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
@@ -2617,7 +2660,7 @@
             <img src="assets/images/marie-clark-author.png" alt="Marie Clark, Author" width="280" height="329" loading="lazy" decoding="async" sizes="280px" fetchpriority="low">
           </picture>
         </div>
-        <p class="text-body" style="text-align: center;">
+        <p class="text-body">
           Marie Clark, PhD, is a botanical researcher and educator whose practical approach to herbalism is rooted in her Vermont childhood, where she grew up foraging wild plants with her family. She later earned her doctorate in Ethnobotany and Integrative Plant Sciences at the University of British Columbia, focusing on how traditional North American herbal practices can be adapted safely for everyday use. After more than fifteen years teaching home‑apothecary workshops, she created The Modern Home Apothecary as a clear, accessible reference for anyone wanting to prepare teas, tinctures, salves, and botanical recipes with confidence.
         </p>
       </div>
@@ -2819,6 +2862,7 @@
 
     // Cart (MVP: in-memory, no checkout — proceed shows out-of-stock modal)
     (function() {
+      var WEBHOOK_URL = 'https://nickhm.app.n8n.cloud/webhook-test/8314ed98-cc91-4f6d-9668-c2f71b030e37';
       var cart = [];
       var MAIN_PRODUCT = { id: 'book', name: 'The Modern Home Apothecary', price: 79, img: 'heroproductimages/COVER_01.png' };
       var drawer = document.getElementById('cart-drawer');
@@ -2833,6 +2877,20 @@
       var checkoutBtn = document.getElementById('cart-checkout');
       var modal = document.getElementById('out-of-stock-modal');
       var modalClose = document.getElementById('modal-close');
+
+      function getCartPayload() {
+        var items = cart.map(function(it) {
+          return { id: it.id, name: it.name, price: it.price, img: it.img || MAIN_PRODUCT.img, qty: it.qty || 1, isAddon: !!it.isAddon };
+        });
+        return { cart: items, subtotal: getSubtotal(), itemCount: getTotalItems() };
+      }
+      function sendToWebhook(payload) {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(function() {});
+      }
 
       function getTotalItems() {
         return cart.reduce(function(sum, it) { return sum + (it.qty || 1); }, 0);
@@ -2939,6 +2997,9 @@
       backdrop && backdrop.addEventListener('click', closeCart);
       checkoutBtn && checkoutBtn.addEventListener('click', function() {
         if (getTotalItems() === 0) return;
+        var payload = getCartPayload();
+        payload.event = 'checkout';
+        sendToWebhook(payload);
         closeCart();
         if (modal) { modal.classList.add('is-visible'); modal.setAttribute('aria-hidden', 'false'); }
       });
@@ -2961,6 +3022,10 @@
           }
           if (waitlistEmail) waitlistEmail.setAttribute('aria-invalid', 'false');
           if (waitlistSubmit) { waitlistSubmit.disabled = true; waitlistSubmit.textContent = 'Joining…'; }
+          var payload = getCartPayload();
+          payload.event = 'waitlist';
+          payload.email = email;
+          sendToWebhook(payload);
           setTimeout(function() {
             if (waitlistSubmit) { waitlistSubmit.disabled = false; waitlistSubmit.textContent = 'Join waitlist'; }
             if (modal) { modal.classList.remove('is-visible'); modal.setAttribute('aria-hidden', 'true'); }
