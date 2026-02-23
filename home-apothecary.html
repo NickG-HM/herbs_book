@@ -836,19 +836,27 @@
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      width: 100%;
     }
     .product-gallery__track::-webkit-scrollbar { display: none; }
     .product-gallery__slide {
       flex: 0 0 100%;
+      min-width: 0;
+      width: 100%;
       scroll-snap-align: start;
       aspect-ratio: 3/4;
       position: relative;
     }
+    .product-gallery__slide picture,
     .product-gallery__slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .product-gallery__slide img {
+      min-width: 100%;
     }
     .product-gallery__arrows {
       position: absolute;
@@ -1160,6 +1168,16 @@
     }
     .book-blurb-banner__text--who-for li { margin-bottom: var(--space-2); }
     .book-blurb-banner__text--who-for li:last-child { margin-bottom: 0; }
+    @media (min-width: 768px) {
+      #who-for .container { text-align: center; }
+      #who-for .book-blurb-banner__text--who-for {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        list-style-position: inside;
+        padding-left: 0;
+      }
+    }
 
     /* ─── Trust strip ─── */
     .trust-strip {
@@ -1644,37 +1662,56 @@
       line-height: 1.5;
       color: #f5f5f2;
     }
-    .section-trusted .marquee-item img {
+    .section-trusted .marquee-item img,
+    .section-trusted .marquee-logo {
       filter: brightness(0) invert(1);
     }
     .section-trusted .marquee {
       overflow: hidden;
-      -webkit-overflow-scrolling: touch;
       width: 100%;
       padding-left: 0;
       padding-right: 0;
       box-sizing: border-box;
+      user-select: none;
     }
     .marquee-track {
       display: flex;
       align-items: center;
       flex-wrap: nowrap;
       width: max-content;
-      animation: marquee 25s linear infinite;
-      -webkit-animation: marquee 25s linear infinite;
+      animation: marquee 20s linear infinite;
       will-change: transform;
     }
     .marquee:hover .marquee-track { animation-play-state: paused; }
     @keyframes marquee {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-33.333%); }
-    }
-    @-webkit-keyframes marquee {
-      0% { -webkit-transform: translateX(0); transform: translateX(0); }
-      100% { -webkit-transform: translateX(-33.333%); transform: translateX(-33.333%); }
+      100% { transform: translateX(-50%); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .marquee-track { animation: none; -webkit-animation: none; }
+      .marquee-track { animation: none; }
+      .marquee-track { justify-content: center; gap: 2rem; }
+    }
+    /* Duplicated row: each .marquee-content is one full set of logos (same width = seamless -50% loop) */
+    .marquee-content {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: clamp(2rem, 5vw, 4rem);
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      box-sizing: border-box;
+    }
+    .marquee-logo {
+      flex-shrink: 0;
+      height: 72px;
+      width: auto;
+      max-width: 210px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+    @media (max-width: 640px) {
+      .marquee-logo { height: 54px; max-width: 150px; }
     }
     .marquee-item {
       flex-shrink: 0;
@@ -2057,6 +2094,13 @@
       margin-right: auto;
     }
     .addons-products__item .addon-add-btn { margin-top: 0; }
+    @media (min-width: 768px) {
+      .addons-products__list {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
     @media (max-width: 599px) {
       .addons-products__list {
         grid-template-columns: 1fr;
@@ -2467,24 +2511,22 @@
 
       <div class="marquee" aria-label="Featured in">
         <div class="marquee-track">
-            <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/fortune.svg" alt="Fortune" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/fast-company.svg" alt="Fast Company" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/wsj.svg" alt="Wall Street Journal" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/fortune.svg" alt="Fortune" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/fast-company.svg" alt="Fast Company" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/wsj.svg" alt="Wall Street Journal" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/bloomberg.svg" alt="Bloomberg" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/fortune.svg" alt="Fortune" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/fast-company.svg" alt="Fast Company" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
-            <div class="marquee-item"><img src="assets/logos/wsj.svg" alt="Wall Street Journal" width="120" height="48" loading="lazy" decoding="async" fetchpriority="low"></div>
+          <div class="marquee-content">
+            <img class="marquee-logo" src="assets/logos/forbes.svg" alt="Forbes" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/business-insider.svg" alt="Business Insider" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/bloomberg.svg" alt="Bloomberg" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/fortune.svg" alt="Fortune" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/fast-company.svg" alt="Fast Company" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/wsj.svg" alt="Wall Street Journal" width="120" height="48" loading="lazy" decoding="async">
+          </div>
+          <div class="marquee-content" aria-hidden="true">
+            <img class="marquee-logo" src="assets/logos/forbes.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/business-insider.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/bloomberg.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/fortune.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/fast-company.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
+            <img class="marquee-logo" src="assets/logos/wsj.svg" alt="" width="120" height="48" loading="lazy" decoding="async">
+          </div>
         </div>
       </div>
     </section>
@@ -2668,7 +2710,7 @@
           </picture>
         </div>
         <p class="text-body">
-          Marie Clark, PhD, is a botanical researcher and educator whose practical approach to herbalism is rooted in her Vermont childhood, where she grew up foraging wild plants with her family. She later earned her doctorate in Ethnobotany and Integrative Plant Sciences at the University of British Columbia, focusing on how traditional North American herbal practices can be adapted safely for everyday use. After more than fifteen years teaching home‑apothecary workshops, she created The Modern Home Apothecary as a clear, accessible reference for anyone wanting to prepare teas, tinctures, salves, and botanical recipes with confidence.
+          Marie Clark, PhD, is a botanical researcher and educator whose practical approach to herbalism is rooted in her Vermont childhood, where she grew up foraging wild plants with her family. She later earned her doctorate in Ethnobotany and Integrative Plant Sciences at the University of British Columbia, focusing on how traditional North American herbal practices can be adapted safely for everyday use. After more than fifteen years teaching home‑apothecary workshops, she created <em>The Modern Home Apothecary</em> as a clear, accessible reference for anyone wanting to prepare teas, tinctures, salves, and botanical recipes with confidence.
         </p>
       </div>
     </section>
