@@ -28,8 +28,8 @@ const CONFIG = {
   sections: {
     dir: ROOT,
     files: [
-      'hf_20260218_064519_ef344f8b-60ac-4a15-8a62-04fa90cff108.png',
-      'hf_20260218_062913_4bc7d5e0-40de-4b00-8916-317705909425.png',
+      'plant-notes-lavender-oat-tonic.png',
+      'herbs-index-calendula-mint-lip-balm.png',
     ],
     maxWidth: 1200,
     webpQuality: 82,
